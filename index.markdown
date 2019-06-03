@@ -14,6 +14,7 @@ NeoVM is a [stack-based machine](https://en.wikipedia.org/wiki/Stack_machine) fo
 
 FORTH is older of these languages, being proposed in 1970 by [Chuck Moore](https://en.wikipedia.org/wiki/Charles_H._Moore), currently maintained by [Forth Inc](forth.com) and many independent implementations, such as [Gforth](https://www.gnu.org/software/gforth/) and also this nice website/javascript implementation by <a href="https://twitter.com/skilldrick">Nick Morgan</a> called [EasyForth](https://github.com/skilldrick/easyforth).
 Stack languages have many [practical applications](https://www.forth.com/resources/forth-apps/), specially due to their simplicity, and easier verification for code correctness (specially on a deterministic environment such as a blockchain).
+
 _(*) If you are new on the Stack Programming world, we strongly recommend reading more on [Stack Data Structure](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) and following [EasyForth tutorial](https://skilldrick.github.io/easyforth) first._
 
 ### NVM Stack Items
