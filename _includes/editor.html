@@ -1,6 +1,6 @@
 <div class="editor editor-text {{ include.size }} {% if include.canvas %}has-canvas{% endif %}">
-  <div class="stack-viewer">&nbsp;</div>
-  <div class="altstack-viewer">&nbsp;</div>
+  <div class="stack-viewer">&nbsp; Main Stack: </div>
+  <div class="altstack-viewer">&nbsp; Alt Stack: </div>
   <div class="text">
     <div class="prev-lines"></div>
     <textarea class="input editor-text">{% if include.game %}{% include snake.forth %}{% endif %}</textarea>
