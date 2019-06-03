@@ -8,6 +8,7 @@ function Editor(selectorOrElement) {
     var $prevLines = $text.find(".prev-lines");
     var $input = $text.find(".input");
     var $stack = $editor.find(".stack-viewer");
+    var $altstack = $editor.find(".altstack-viewer");
     var graphics = Graphics($editor.find(".canvas"));
     var $window = $(window);
     var lineBuffer = [""]; // Start line buffer with blank line
@@ -33,6 +34,7 @@ function Editor(selectorOrElement) {
 
     function updateStack() {
       $stack.text(forth.getStack());
+      $altstack.text(forth.getReturnStack());
     }
 
     function hideInput() {

@@ -15,6 +15,10 @@
   margin-right: 125px;
 }
 
+.editor.has-canvas .altstack-viewer {
+  margin-right: 125px;
+}
+
 .editor.has-canvas .canvas {
   position: absolute;
   right: 5px;
@@ -31,6 +35,12 @@
 }
 
 .editor .stack-viewer, .stack {
+  padding: 5px;
+  border: 1px solid #888;
+  margin-bottom: 5px;
+}
+
+.editor .altstack-viewer, .stack {
   padding: 5px;
   border: 1px solid #888;
   margin-bottom: 5px;

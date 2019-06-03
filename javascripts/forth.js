@@ -200,6 +200,9 @@ function Forth(next) {
       getStack: function () {
         return context.stack.print();
       },
+      getReturnStack: function () {
+        return context.returnStack.print();
+      },
       setMemoryHandler: function (cb) {
         context.onMemoryChange = function (address, value) {
           cb(address, value, context.memory.getVariable("graphics"));
