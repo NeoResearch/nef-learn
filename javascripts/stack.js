@@ -22,7 +22,7 @@ function Stack(name) {
       }
     },
     print: function () {
-      return arr.join(" ") + " <- Top ";
+      return arr.join(" ") + " <- Top";
     }
   };
 }
