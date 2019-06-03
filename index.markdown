@@ -18,7 +18,7 @@ _(*) If you are new on the Stack Programming world, we strongly recommend readin
 
 ### NVM Stack Items
 
-NeoVM supports five different types of stack items.
+NeoVM supports seven different types of stack items.
 * Integers: which are in fact Big Integers with positive/negative values limited to 32-bytes (or 256 bits)
 * Byte Arrays: general byte arrays
 * Booleans: a true/false value
@@ -28,30 +28,8 @@ NeoVM supports five different types of stack items.
 * Interop Interfaces: these stack items are only meant to used for interoperating with high-level implementations of NeoVM, such as NeoContract (the Application Engine for Neo Blockchain)
 
 
-## Old Introduction
 
-This small ebook is here to teach you a programming language called Forth. Forth is a
-language unlike most others. It's not functional _or_ object oriented, it doesn't
-have type-checking, and it basically has zero syntax. It was written in the 70s, but
-is still used today for
-[certain applications](http://www.forth.com/resources/apps/more-applications.html).
-
-Why would you want to learn such an odd language? Every new programming
-language you learn helps you think about problems in new ways. Forth is very
-easy to learn, but it requires you to think in a different way than you're used
-to. That makes it a perfect language to broaden your coding horizons.
-
-This book includes a simple implementation of Forth I wrote in JavaScript. It's by
-no means perfect, and is missing a lot of the functionality you'd expect in a real
-Forth system. It's just here to give you an easy way to try out the examples. (If
-you're a Forth expert, please
-[contribute here](https://github.com/skilldrick/easyforth) and make it better!)
-
-I'm going to assume that you know at least one other programming language, and have
-a basic idea of how stacks work as a data structure.
-
-
-## Adding Some Numbers
+## Adding Some Numbers (EasyForth)
 
 The thing that separates Forth from most other languages is its use of the
 stack. In Forth, everything revolves around the stack. Any time you type a
