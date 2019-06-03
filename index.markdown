@@ -7,6 +7,9 @@ layout: default
   {:toc}
 </div>
 
+## TODO
+
+Still fixing this text... part below is from original "Easy Forth!" tutorial.
 
 ## Introduction
 
