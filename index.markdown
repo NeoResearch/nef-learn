@@ -7,11 +7,14 @@ layout: default
   {:toc}
 </div>
 
-## TODO
-
-Still fixing this text... part below is from original "Easy Forth!" tutorial.
-
 ## Introduction
+
+This tutorial intends to teach you the basics of [Neo Blockchain Virtual Machine](https://github.com/neo-project/neo-vm), usually called NeoVM (or NVM).
+NeoVM is a [stack-based machine](https://en.wikipedia.org/wiki/Stack_machine) for processing operations on [Neo Blockchain](https://neo.org), inspired by many successful stack languages like [Bitcoin Script](https://en.bitcoin.it/wiki/Script), [Microsoft CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language), [Java Virtual Machine](https://en.wikipedia.org/wiki/Java_virtual_machine) and, finally, the [FORTH language](https://en.wikipedia.org/wiki/Forth_(programming_language)).
+FORTH is older of these languages, being proposed in 1970 by Chuck Moore, currently maintained by [Forth Inc](forth.com) and many independent implementations, such as [Gforth](https://www.gnu.org/software/gforth/) and this nice website implementation by <a href="https://twitter.com/skilldrick">Nick Morgan</a> called [EasyForth](https://github.com/skilldrick/easyforth).
+
+
+## Old Introduction
 
 This small ebook is here to teach you a programming language called Forth. Forth is a
 language unlike most others. It's not functional _or_ object oriented, it doesn't
