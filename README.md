@@ -10,4 +10,4 @@ Please use `gh-pages` branch to work on the neovm website, to leave space on `ma
 
 ## License
 
-Original license from @skilldrick + MIT License on NeoResearch contributions
+Original license from [Nick Morgan](https://twitter.com/skilldrick) @skilldrick + MIT License on NeoResearch contributions
