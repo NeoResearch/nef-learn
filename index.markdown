@@ -59,6 +59,10 @@ should look like this:
 
 {% include stack.html stack="1 2 3" %}
 
+Test II 
+
+{% include stack.html stack="1 2 3 >r 4" %}
+
 Now, into the same interpreter, type a single `+` followed by the `Enter` key. The top two
 elements on the stack, `2` and `3`, have been replaced by `5`.
 
