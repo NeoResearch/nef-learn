@@ -14,11 +14,18 @@ NeoVM is a [stack-based machine](https://en.wikipedia.org/wiki/Stack_machine) fo
 
 FORTH is older of these languages, being proposed in 1970 by [Chuck Moore](https://en.wikipedia.org/wiki/Charles_H._Moore), currently maintained by [Forth Inc](forth.com) and many independent implementations, such as [Gforth](https://www.gnu.org/software/gforth/) and also this nice website/javascript implementation by <a href="https://twitter.com/skilldrick">Nick Morgan</a> called [EasyForth](https://github.com/skilldrick/easyforth).
 Stack languages have many [practical applications](https://www.forth.com/resources/forth-apps/), specially due to their simplicity, and easier verification for code correctness (specially on a deterministic environment such as a blockchain).
-_(*) If you are new on the Stack Programming world, we strongly recommend reading more on [Stack Data Structure](https://en.wikipedia.org/wiki/Stack_(abstract_data_type) and following [EasyForth tutorial](https://www.forth.com/resources/forth-apps) first._
+_(*) If you are new on the Stack Programming world, we strongly recommend reading more on [Stack Data Structure](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) and following [EasyForth tutorial](https://www.forth.com/resources/forth-apps) first._
 
 ### NVM Stack Items
 
 NeoVM supports five different types of stack items.
+* Integers: which are in fact Big Integers with positive/negative values limited to 32-bytes (or 256 bits)
+* Byte Arrays: general byte arrays
+* Booleans: a true/false value
+* Arrays: an array can contain a collection of other stack items, including more Arrays (_important: this is a reference type, not value type_)
+* Structs: similar to an array, it can contain several stack items inside it
+* Maps: a map can contain a byte array mapping from a key to a value, that may be another stack item
+* Interop Interfaces: these stack items are only meant to used for interoperating with high-level implementations of NeoVM, such as NeoContract (the Application Engine for Neo Blockchain)
 
 
 ## Old Introduction
