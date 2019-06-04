@@ -100,6 +100,9 @@
 \ add values on main stack
 : add + ;                        \ 0x93
 
+\ multiply values on main stack
+: mul * ;                        \ 0x95
+
 
 \ bye
 
