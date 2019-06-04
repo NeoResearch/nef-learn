@@ -15,11 +15,6 @@ function Editor(selectorOrElement) {
     var selectedLine = null; // Set this to null to reset selected line
     var inputHidden = false;
 
-    // clear screen
-    function clearScreen(){
-      //var $codeSpan = $("<span>").addClass("code").text(code);
-    }
-
     function addLine(code) {
       selectedLine = null;
       lineBuffer.push(code);
@@ -64,10 +59,10 @@ function Editor(selectorOrElement) {
       forth.readLines(codeLines, {
         lineCallback: function (codeLine) {
           $line = addLine(codeLine);
-          console.log('processing line[0].innerHTML: '+$line[0].innerHTML);
+          //console.log('processing line[0].innerHTML: '+$line[0].innerHTML);
           if ($line[0].innerHTML == '<span class="code">page</span><span> </span>')
           {
-            console.log("found PAGE!");
+            // clear screen (command 'page' from 'gforth')
             $prevLines[0].innerHTML = '';
           }
         },
