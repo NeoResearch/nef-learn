@@ -87,7 +87,7 @@ You can also write everything in a single line and press `Enter`:
 
     push10 push3 add
 
-{% include editor.html size="small"%}
+{% include editor.html neovm=true size="small"%}
 
 The stack should now look like this:
 
@@ -103,7 +103,7 @@ Try the following:
 
     push5 push2 add push10 mul
 
-{% include editor.html size="small"%}
+{% include editor.html neovm=true size="small"%}
 
 One of the nice things about Forth is that the order of operations is
 completely based on their order in the program. For example, when executing `5
