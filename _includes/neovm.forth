@@ -91,9 +91,9 @@
 
 \ : nvm.xdrop   \todo
 
-: nvm.depth depth ; \ 0x74
+\ : nvm.depth depth ; \ 0x74
 
-: move3 ( count -- ) 3 0 do dup . >r r@ loop 3 0 do r@ r> loop  ;
+\ : move3 ( count -- ) 3 0 do dup . >r r@ loop 3 0 do r@ r> loop  ;
 
 
 

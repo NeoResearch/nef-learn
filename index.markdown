@@ -47,7 +47,7 @@ interpreter, typing `Enter` after each line.
     PUSH2
     PUSH3
 
-{% include editor.html %}
+{% include editor.html neovm=true %}
 
 Every time you type a line followed by the `Enter` key, the Forth interpreter
 executes that line, and appends the string `ok` to let you know there were no
