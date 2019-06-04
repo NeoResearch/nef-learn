@@ -49,35 +49,32 @@ interpreter, typing `Enter` after each line.
 
 {% include editor.html neovm=true %}
 
-Every time you type a line followed by the `Enter` key, the Forth interpreter
-executes that line, and appends the string `ok` to let you know there were no
-errors. You should also notice that as you execute each line, the area at the
-top fills up with numbers. That area is our visualization of the stack. It
+What happened? Every time you type a line followed by the `Enter` key, the NVM opcode is executed (string `ok` from FORTH lets you know there were no
+errors).
+You should also notice that as you execute each line, the area at the
+top fills up with numbers.
+That area is our visualization of the stack. It
 should look like this:
 
 {% include stack.html stack="1 2 3" %}
 
-Test II 
-
-{% include stack.html stack="1 2 3 >r 4" %}
-
-Now, into the same interpreter, type a single `+` followed by the `Enter` key. The top two
+Now, into the same interpreter, try the opcode `ADD` followed by the `Enter` key. The top two
 elements on the stack, `2` and `3`, have been replaced by `5`.
 
 {% include stack.html stack="1 5" %}
 
 At this point, your editor window should look like this:
 
-<div class="editor-preview editor-text">1  <span class="output">ok</span>
-2  <span class="output">ok</span>
-3  <span class="output">ok</span>
-+  <span class="output">ok</span>
+<div class="editor-preview editor-text">push1  <span class="output">ok</span>
+push2  <span class="output">ok</span>
+push3  <span class="output">ok</span>
+add  <span class="output">ok</span>
 </div>
 
-Type `+` again and press `Enter`, and the top two elements will be replaced by 6. If
-you type `+` one more time, Forth will try to pop the top two elements off the
+Type `ADD` again and press `Enter`, and the top two elements will be replaced by `6`. 
+If you try `ADD` one more time NVM would abort execution, because it will try to pop the top two elements off the
 stack, even though there's only _one_ element on the stack! This results in a
-`Stack underflow` error:
+`FAULT` state on NeoVM:
 
 <div class="editor-preview editor-text">1  <span class="output">ok</span>
 2  <span class="output">ok</span>

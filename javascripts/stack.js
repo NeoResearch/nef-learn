@@ -1,5 +1,5 @@
 function StackUnderflowError() {
-  this.message = "Stack underflow";
+  this.message = "FAULT (caused by Stack Underflow)";//"Stack underflow";
 }
 
 function Stack(name) {
