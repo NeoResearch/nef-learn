@@ -49,8 +49,7 @@ interpreter, typing `Enter` after each line.
 
 {% include editor.html neovm=true %}
 
-What happened? Every time you type a line followed by the `Enter` key, the NVM opcode is executed (string `ok` from FORTH lets you know there were no
-errors).
+What happened? Every time you type a line followed by the `Enter` key, the NVM opcode is executed (state `HALT` means that no errors happened during NeoVM execution).
 You should also notice that as you execute each line, the area at the
 top fills up with numbers.
 That area is our visualization of the stack. It
@@ -65,10 +64,10 @@ elements on the stack, `2` and `3`, have been replaced by `5`.
 
 At this point, your editor window should look like this:
 
-<div class="editor-preview editor-text">push1  <span class="output">ok</span>
-push2  <span class="output">ok</span>
-push3  <span class="output">ok</span>
-add  <span class="output">ok</span>
+<div class="editor-preview editor-text">push1  <span class="output">HALT</span>
+push2  <span class="output">HALT</span>
+push3  <span class="output">HALT</span>
+add  <span class="output">HALT</span>
 </div>
 
 Type `ADD` again and press `Enter`, and the top two elements will be replaced by `6`. 
@@ -77,10 +76,10 @@ stack, even though there's only _one_ element on the stack! This results in a
 `FAULT` state on NeoVM:
 
 <div class="editor-preview editor-text">push1  <span class="output">ok</span>
-push2  <span class="output">ok</span>
-push3  <span class="output">ok</span>
-add  <span class="output">ok</span>
-add  <span class="output">ok</span>
+push2  <span class="output">HALT</span>
+push3  <span class="output">HALT</span>
+add  <span class="output">HALT</span>
+add  <span class="output">HALT</span>
 add  <span class="output">FAULT (caused by Stack Underflow)</span>
 </div>
 

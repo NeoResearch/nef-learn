@@ -132,7 +132,7 @@ function Forth(next) {
 
       if (!nextToken) { // reached end of line
         if (!currentDefinition) { // don't append output while definition is in progress
-          context.addOutput(" ok");
+          context.addOutput(" HALT");
         }
         next();
         return;
