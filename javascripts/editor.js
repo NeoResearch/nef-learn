@@ -65,6 +65,8 @@ function Editor(selectorOrElement) {
         lineCallback: function (codeLine) {
           $line = addLine(codeLine);
           console.log('processing line: '+$line);
+          console.log('processing typeof(line): '+typeof($line));
+          console.log('processing line[0]: '+$line[0]);
           if ($line == 'page')
             console.log("found PAGE!");
         },
