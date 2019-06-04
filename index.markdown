@@ -96,8 +96,7 @@ The stack should now look like this:
 This style, where the operator appears after the operands, is known as
 [Reverse-Polish
 notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation). 
-Let's try
-something a bit more complicated, and calculate `10 * (5 + 2)`.
+Let's try to calculate `10 * (5 + 2)`.
 You will need also need a multiplication opcode, which is called `MUL` (opcode number `149 = 0x95`).
 Try the following:
 
