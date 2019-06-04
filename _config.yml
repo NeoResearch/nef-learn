@@ -1,5 +1,5 @@
 safe: true
 lsi: false
-highlighter: pygments
+highlighter: rouge
 kramdown:
   toc_levels: 1..2
