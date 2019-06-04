@@ -10,7 +10,7 @@ layout: default
 ## Introduction
 
 This tutorial intends to teach you the basics of [Neo Blockchain Virtual Machine](https://github.com/neo-project/neo-vm), usually called NeoVM (or NVM).
-NeoVM is a [stack-based machine](https://en.wikipedia.org/wiki/Stack_machine) for processing operations on [Neo Blockchain](https://neo.org), inspired by many successful stack languages like [Bitcoin Script](https://en.bitcoin.it/wiki/Script), [Microsoft CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language), [Java Virtual Machine](https://en.wikipedia.org/wiki/Java_virtual_machine) and, finally, the [FORTH language](https://en.wikipedia.org/wiki/Forth_(programming_language)).
+NeoVM is a [stack-based machine](https://en.wikipedia.org/wiki/Stack_machine) for processing transactions (or even Smart Contract operations) on [Neo Blockchain](https://neo.org), inspired by many successful stack languages like [Bitcoin Script](https://en.bitcoin.it/wiki/Script), [Microsoft CIL](https://en.wikipedia.org/wiki/Common_Intermediate_Language), [Java Virtual Machine](https://en.wikipedia.org/wiki/Java_virtual_machine) and, finally, the [FORTH language](https://en.wikipedia.org/wiki/Forth_(programming_language)).
 
 FORTH is older of these languages, being proposed in 1970 by [Chuck Moore](https://en.wikipedia.org/wiki/Charles_H._Moore), currently maintained by [Forth Inc](forth.com) and many independent implementations, such as [Gforth](https://www.gnu.org/software/gforth/) and also this nice website/javascript implementation by <a href="https://twitter.com/skilldrick">Nick Morgan</a> called [EasyForth](https://github.com/skilldrick/easyforth).
 Stack languages have many [practical applications](https://www.forth.com/resources/forth-apps/), specially due to their simplicity, and easier verification for code correctness (specially on a deterministic environment such as a blockchain).
@@ -28,22 +28,24 @@ NeoVM supports seven different types of stack items.
 * Maps: a map can contain a byte array mapping from a key to a value, that may be another stack item
 * Interop Interfaces: these stack items are only meant to used for interoperating with high-level implementations of NeoVM, such as NeoContract (the Application Engine for Neo Blockchain)
 
+### NVM Opcodes
 
+A NeoVM program_ is called _script_ (or _NeoVM script_), which is composed by several operations (called _opcodes_). Each opcode has a unique number and a unique name, in order to identify the operation.
+For example: opcode named `PUSH1`, number 81 (in hex, `81 = 0x51`), generates the number 1; opcode named `ADD`, number 147 (in hex, `147 = 0x93`) adds two numbers.
 
-## Adding Some Numbers (EasyForth)
+## Push and Add Some Numbers
 
-The thing that separates Forth from most other languages is its use of the
-stack. In Forth, everything revolves around the stack. Any time you type a
-number, it gets pushed onto the stack. If you want to add two numbers together,
-typing `+` takes the top two numbers off the stack, adds them, and puts
-the result back on the stack.
+All information needs to be on NeoVM stack in order to be processed.
+For example, if you want to add two numbers, first you need to put them on the stack.
+One difference from other languages is that you need to _first put the operands, and then put the operation_, e.g., operation `1 + 2` is done as `1 2 +` on the stack.
+Where is the result of the operation stored? Again, the result of the operation is also put back on the stack.
 
-Let's take a look at an example. Type (don't copy-paste) the following into the
+Let's try it on practice! Type (don't copy-paste) the following into the
 interpreter, typing `Enter` after each line.
 
-    1
-    2
-    3
+    PUSH1
+    PUSH2
+    PUSH3
 
 {% include editor.html %}
 
