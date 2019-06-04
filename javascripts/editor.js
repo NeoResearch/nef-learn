@@ -15,6 +15,11 @@ function Editor(selectorOrElement) {
     var selectedLine = null; // Set this to null to reset selected line
     var inputHidden = false;
 
+    // clear screen
+    function clearScreen(){
+      //var $codeSpan = $("<span>").addClass("code").text(code);
+    }
+
     function addLine(code) {
       selectedLine = null;
       lineBuffer.push(code);
@@ -59,6 +64,9 @@ function Editor(selectorOrElement) {
       forth.readLines(codeLines, {
         lineCallback: function (codeLine) {
           $line = addLine(codeLine);
+          console.log('processing line: '+$line);
+          if ($line == 'page')
+            console.log("found PAGE!");
         },
         outputCallback: function (output) {
           addOutput($line, output);

@@ -30,8 +30,8 @@ NeoVM supports seven different types of stack items.
 
 ### NVM Opcodes
 
-A NeoVM program_ is called _script_ (or _NeoVM script_), which is composed by several operations (called _opcodes_). Each opcode has a unique number and a unique name, in order to identify the operation.
-For example: opcode named `PUSH1`, number 81 (in hex, `81 = 0x51`), generates the number 1; opcode named `ADD`, number 147 (in hex, `147 = 0x93`) adds two numbers.
+A NeoVM program is called _script_ (or _NeoVM script_), which is composed by several operations (called _opcodes_). Each opcode has a unique number and a unique name, in order to identify the operation.
+**For example:** opcode named `PUSH1`, number 81 (in hex, `81 = 0x51`), generates the number 1; opcode named `ADD`, number 147 (in hex, `147 = 0x93`) adds two numbers.
 
 ## Push and Add Some Numbers
 
