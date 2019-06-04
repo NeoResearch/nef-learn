@@ -68,7 +68,7 @@ function Editor(selectorOrElement) {
           console.log('processing typeof(line): '+typeof($line));
           console.log('processing line[0].innerHTML: '+$line[0].innerHTML);
           console.log('processing line[0]: '+$line[0]);
-          if ($line == 'page')
+          if ($line == '<span class="code">page</span><span> </span>')
             console.log("found PAGE!");
         },
         outputCallback: function (output) {

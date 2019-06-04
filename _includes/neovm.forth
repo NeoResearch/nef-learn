@@ -99,3 +99,5 @@
 
 \ bye
 
+\ clean page (command implemented manually)
+page
