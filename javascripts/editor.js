@@ -64,11 +64,8 @@ function Editor(selectorOrElement) {
       forth.readLines(codeLines, {
         lineCallback: function (codeLine) {
           $line = addLine(codeLine);
-          console.log('processing line: '+$line);
-          console.log('processing typeof(line): '+typeof($line));
           console.log('processing line[0].innerHTML: '+$line[0].innerHTML);
-          console.log('processing line[0]: '+$line[0]);
-          if ($line == '<span class="code">page</span><span> </span>')
+          if ($line[0].innerHTML == '<span class="code">page</span><span> </span>')
             console.log("found PAGE!");
         },
         outputCallback: function (output) {
