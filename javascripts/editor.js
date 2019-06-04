@@ -66,7 +66,10 @@ function Editor(selectorOrElement) {
           $line = addLine(codeLine);
           console.log('processing line[0].innerHTML: '+$line[0].innerHTML);
           if ($line[0].innerHTML == '<span class="code">page</span><span> </span>')
+          {
             console.log("found PAGE!");
+            $prevLines[0].innerHTML = '';
+          }
         },
         outputCallback: function (output) {
           addOutput($line, output);
