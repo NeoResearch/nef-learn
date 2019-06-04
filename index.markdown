@@ -75,7 +75,7 @@ If you try `ADD` one more time NVM would abort execution, because it will try to
 stack, even though there's only _one_ element on the stack! This results in a
 `FAULT` state on NeoVM:
 
-<div class="editor-preview editor-text">push1  <span class="output">ok</span>
+<div class="editor-preview editor-text">push1  <span class="output">HALT</span>
 push2  <span class="output">HALT</span>
 push3  <span class="output">HALT</span>
 add  <span class="output">HALT</span>
