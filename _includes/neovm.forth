@@ -97,6 +97,10 @@
 
 
 
+\ add values on main stack
+: add + ;                        \ 0x93
+
+
 \ bye
 
 \ clean page (command implemented manually)
