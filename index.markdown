@@ -37,7 +37,7 @@ A NeoVM program is called _script_ (or _NeoVM script_), which is composed by sev
 
 All information needs to be on NeoVM stack in order to be processed.
 For example, if you want to add two numbers, first you need to put them on the stack.
-One difference from other languages is that you need to _first put the operands, and then put the operation_, e.g., operation `1 + 2` is done as `1 2 +` on the stack.
+One difference from other languages is that you need to _first put the operands, and then put the operation_, e.g., operation `1 + 2` is done as `1 2 +` on a stack machine (_put one, put two, then sum the top two elements_).
 Where is the result of the operation stored? Again, the result of the operation is also put back on the stack.
 
 Let's try it on practice! Type (don't copy-paste) the following into the
