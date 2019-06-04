@@ -81,27 +81,28 @@ stack, even though there's only _one_ element on the stack! This results in a
 3  <span class="output">ok</span>
 +  <span class="output">ok</span>
 +  <span class="output">ok</span>
-+  <span class="output">Stack underflow</span>
++  <span class="output">FAULT (caused by Stack Underflow)</span>
 </div>
 
-Forth doesn't force you to type every token as a separate line. Type the
-following into the next editor, followed by the `Enter` key:
+You can also write everything in a single line and press `Enter`:
 
-    123 456 +
+    push10 push3 add
 
 {% include editor.html size="small"%}
 
 The stack should now look like this:
 
-{% include stack.html stack="579" %}
+{% include stack.html stack="13" %}
 
 This style, where the operator appears after the operands, is known as
 [Reverse-Polish
-notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation). Let's try
-something a bit more complicated, and calculate `10 * (5 + 2)`. Type the
-following into the interpreter:
+notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation). 
+Let's try
+something a bit more complicated, and calculate `10 * (5 + 2)`.
+You will need also need a multiplication opcode, which is called `MUL` (opcode number `149 = 0x95`).
+Try the following:
 
-    5 2 + 10 *
+    push5 push2 add push10 mul
 
 {% include editor.html size="small"%}
 
