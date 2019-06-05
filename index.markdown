@@ -124,19 +124,46 @@ You can play with several arithmetic operations:
 
 **Solution:** result should be `1`.
 
-First part is: `(5 - 6)`. It can be computed using opcodes: `push5 push6 sub`.
-
+First step is: `(5 - 6)`. It can be computed using opcodes: `push5 push6 sub`.
+Result `-1` should be put on stack, after consuming operands `5` and `6`.
 
 {% include stack.html stack="-1" %}
+
+Second step is: `3 * (5 - 6)`. Since `(5 - 6)` is already on stack, you just need to push number 3 and multiply: `push3 mul`. Stack should contain `-3` now.
+
+{% include stack.html stack="-3" %}
+
+Third step: let's leave `-3` there, because we need to compute `15 / 2` now.
+How do we do that? Simple, just `push15 push2 div`. Our stack must have two values now: `-3` and `7` (integer division of 15 and 2).
+
+{% include stack.html stack="-3 7" %}
+
+Fourth step: expression `(3 * (5 - 6) + 15 / 2)` can be computed now. 
+We already have the result of `3 * (5 - 6)` and `15 / 2` on stack, so we just `add`.
+Number `4` should be on top of the stack now.
+
+{% include stack.html stack="4" %}
+
+Finally, we perform the division by 3 and take the rest: `push3 mod`. Result should be `1`.
+
+{% include stack.html stack="1" %}
+
+Let's review the whole operations and the result on stack.
+
+{% include stack.html stack="1" %}
 <div class="editor-preview editor-text">push5 <span class="output">HALT</span>
 push6  <span class="output">HALT</span>
 sub  <span class="output">HALT</span>
+push3  <span class="output">HALT</span>
+mul  <span class="output">HALT</span>
+push15  <span class="output">HALT</span>
+push2  <span class="output">HALT</span>
+div  <span class="output">HALT</span>
+add  <span class="output">HALT</span>
+push3  <span class="output">HALT</span>
+mod  <span class="output">HALT</span>
 </div>
 
-
-How do you calculate expression `(3 * (5 - 6) + 15 / 2) mod 3`.
-
--3 + 7
 
 ## Defining Words
 
