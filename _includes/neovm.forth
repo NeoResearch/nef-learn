@@ -97,11 +97,71 @@
 
 
 
+
+\ adds 1 to the input
+: inc 1 add ;                    \ 0x8b
+
+\ subtracts 1 from the input
+: dec 1 sub ;                    \ 0x8c
+
+\ sign 8d (IF)
+
+\ negate 8f (IF)
+
+\ abs 90 (IF)
+
+\ not 91 (IF)
+
+\ nz 92 (IF)
+
 \ add values on main stack
 : add + ;                        \ 0x93
 
+\ subtract values on main stack
+: sub - ;                        \ 0x94
+
 \ multiply values on main stack
 : mul * ;                        \ 0x95
+
+\ a is divided by b
+: div / ;                        \ 0x96
+
+\ mod (native)                   \ 0x97
+
+\ shl (c# bigint) 0x98
+
+\ shr (c# bigint) 0x99
+
+\ booland (IF) 0x9a
+
+\ boolor (IF) 0x9b
+
+\ Returns 1 if the numbers are equal, 0 otherwise (note that forth true is -1)
+: numequal = -1 mul ;              \ 0x9c
+
+\ 9d reserved ?
+
+\ Returns 1 if the numbers are not equal, 0 otherwise. (note that forth true is -1)
+: numnotequal = 1 add ;            \ 0x9e
+
+\ Returns 1 if a is less than b, 0 otherwise. (note that forth true is -1)
+: lt < -1 mul ;            \ 0x9f
+
+\ Returns 1 if a is greater than b, 0 otherwise. (note that forth true is -1)
+: gt > -1 mul ;            \ 0xa0
+
+\ lte (IF ? OR? <= ?)   \ 0xa1
+
+\ gte (IF ? OR? >= ?)   \ 0xa2
+
+\ Returns the smaller of a and b. \ 0xa3
+\ min (native)
+
+\ Returns the larger of a and b. \ 0xa4
+\ max (native)
+
+\ Returns 1 if x is within the specified range (left-inclusive), 0 otherwise.
+\ WITHIN = 0xA5,
 
 
 \ bye
