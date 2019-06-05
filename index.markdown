@@ -148,10 +148,11 @@ Finally, we perform the division by 3 and take the rest: `push3 mod`. Result sho
 
 {% include stack.html stack="1" %}
 
-Let's review the whole operations and the result on stack: 
+Let's review the whole operations (step-by-step) and the result on stack: 
     push5 push6 sub push3 mul push15 push2 div add push3 mod
 
-{% include stack.html stack="1" %}
+{% include editor.html neovm=true size="small"%}
+
 <div class="editor-preview editor-text">push5 <span class="output">HALT</span>
 push6  <span class="output">HALT</span>
 sub  <span class="output">HALT</span>
@@ -164,6 +165,7 @@ add  <span class="output">HALT</span>
 push3  <span class="output">HALT</span>
 mod  <span class="output">HALT</span>
 </div>
+{% include stack.html stack="1" %}
 
 Try it step by step and make sure this is well understood before proceeding to next section ;)
 
