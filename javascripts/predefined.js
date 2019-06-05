@@ -164,6 +164,16 @@ function addPredefinedWords(addToDictionary, readLines, next) {
     context.stack.push(moved);
   });
 
+  // 1 2 3 4 2 pick \ *duplicate* the item at that position to the top: 1 2 3 4 2 ok
+  addToDictionary("pick", function (context) {
+    var index = context.stack.pop();
+    for(var k = 0; k < int(index)-1; k++)
+      context.returnStack.push(context.stack.pop());
+    var copied = context.stack.peek(1);
+    for(var k = 0; k < int(index)-1; k++)
+      context.stack.push(context.returnStack.pop());
+    context.stack.push(copied);
+  });
 
   // =================================================
 
