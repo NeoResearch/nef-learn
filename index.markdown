@@ -180,70 +180,60 @@ Try to solve it and make sure this is well understood before proceeding to next 
 
 NeoVM inherits several operations from Forth language, specially those connected to stack operations. Let's take a look at some of them.
 
-### `dup` (opcode `0x...`)
+### `dup` (opcode `0x76`)
 
-`dup` is short for "duplicate" -- it duplicates the top element of the stack. For example,
-try this out:
+`dup` duplicates the top element of the stack. Example:
 
     1 2 3 dup
 
 {% include editor.html size="small" %}
 
-You should end up with the following stack:
+Resulting stack:
 
 {% include stack.html stack="1 2 3 3" %}
 
-### `drop ( n -- )`
+### `drop` (opcode `0x75`)
 
-`drop` simply drops the top element of the stack. Running:
+`drop` removes the top element of the stack. Example:
 
     1 2 3 drop
 
-gives you a stack of:
+Resulting stack:
 
 {% include stack.html stack="1 2" %}
 
-{% include editor.html size="small"%}
+### `swap` (opcode `0x7c`)
 
-### `swap ( n1 n2 -- n2 n1 )`
-
-`swap`, as you may have guessed, swaps the top two elements of the stack. For example:
+`swap` simply swaps the top two elements of the stack. Example:
 
     1 2 3 4 swap
 
-will give you:
+Resulting stack:
 
 {% include stack.html stack="1 2 4 3" %}
 
-{% include editor.html size="small"%}
+### `over` (opcode `0x78`)
 
-### `over ( n1 n2 -- n1 n2 n1 )`
-
-`over` is a bit less obvious: it takes the second element from the top of the
-stack and duplicates it to the top of the stack. Running this:
+`over` takes the **second** element from the top of the
+stack and duplicates it to the top of the stack. Example:
 
     1 2 3 over
 
-will result in this:
+Resulting stack:
 
 {% include stack.html stack="1 2 3 2" %}
 
-{% include editor.html size="small"%}
+### `rot` (opcode `0x7b`)
 
-### `rot ( n1 n2 n3 -- n2 n3 n1 )`
+`rot` applied a "rotation" the **top three** elements of the stack. Example:
 
-Finally, `rot` "rotates" the top _three_ elements of the stack. The third
-element from the top of the stack gets moved to the top of the stack, pushing
-the other two elements down.
+    1 2 3 4 5 6 rot
 
-    1 2 3 rot
+Resulting stack:
 
-gives you:
+{% include stack.html stack="1 2 3 5 6 4" %}
 
-{% include stack.html stack="2 3 1" %}
-
-{% include editor.html size="small"%}
-
+## Double-Stack model
 
 ## Generating Output
 
