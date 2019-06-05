@@ -167,7 +167,7 @@ mod  <span class="output">HALT</span>
 </div>
 {% include stack.html stack="1" %}
 
-**Exercise:** How do you calculate `15 / (12 / 4)`?
+**Exercise:** How do you calculate `15 / (12 / 4)` using NeoVM opcodes?
 
 {% include editor.html neovm=true size="small"%}
 
@@ -178,10 +178,9 @@ Try to solve it and make sure this is well understood before proceeding to next 
 
 ## Stack Operations
 
-Now we can start taking a look at some of Forth's predefined words. First,
-let's look at some words for manipulating the elements at the top of the stack.
+NeoVM inherits several operations from Forth language, specially those connected to stack operations. Let's take a look at some of them.
 
-### `dup ( n -- n n )`
+### `dup` (opcode `0x...`)
 
 `dup` is short for "duplicate" -- it duplicates the top element of the stack. For example,
 try this out:
