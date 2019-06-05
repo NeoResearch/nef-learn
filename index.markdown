@@ -176,51 +176,7 @@ mod  <span class="output">HALT</span>
 Try to solve it and make sure this is well understood before proceeding to next section ;)
 
 
-## Defining Words
-
-The syntax of Forth is extremely straightforward. Forth code is interpreted as
-a series of space-delimited words. Almost all non-whitespace characters are valid
-in words. When the Forth interpreter reads a word, it checks to see if a
-definition exists in an internal structure known as the Dictionary. If it is
-found, that definition is executed. Otherwise, the word is assumed to be a
-number, and it is pushed onto the stack. If the word cannot be converted to a
-number, an error occurs.
-
-You can try that out yourself below. Type `foo` (an unrecognized word)
-and press enter.
-
-{% include editor.html size="small"%}
-
-You should see something like this:
-
-<div class="editor-preview editor-text">foo  <span class="output">foo ?</span></div>
-
-`foo ?` means that Forth was unable to find a definition for `foo`, and it
-wasn't a valid number.
-
-We can create our own definition of `foo` using two special words called `:`
-(colon) and `;` (semicolon).  `:` is our way of telling Forth we want to create
-a definition. The first word after the `:` becomes the definition name, and the
-rest of the words (until the `;`) make up the body of the definition. It's
-conventional to include two spaces between the name and the body of the
-definition. Try entering the following:
-
-    : foo  100 + ;
-    1000 foo
-    foo foo foo
-
-**Warning:** A common mistake is to miss out the space before the `;` word. Because Forth
-words are space delimited and can contain most characters, `+;` is a perfectly
-valid word and is not parsed as two separate words.
-
-{% include editor.html size="small"%}
-
-As you've hopefully figured out, our `foo` word simply adds 100 to the value on
-top of the stack. It's not very interesting, but it should give you an idea of
-how simple definitions work.
-
-
-## Stack Manipulation
+## Stack Operations
 
 Now we can start taking a look at some of Forth's predefined words. First,
 let's look at some words for manipulating the elements at the top of the stack.
