@@ -109,12 +109,34 @@ Try the following:
 The execution in NeoVM follows the order of opcodes in the given NVM script.
 This way, no parentheses is needed to perform any kind of arithmetic operation.
 
-### More arithmetic operations
+## Arithmetic operations
 
 You can play with several arithmetic operations:
-* ADD (opcode ) 
+* ADD (opcode `0x93`): adds two numbers on stack
+* SUB (opcode `0x94`): subtracts two numbers on stack 
+* MUL (opcode `0x95`): multiplies two numbers on stack 
+* DIV (opcode `0x96`): divides two numbers on stack (integer division)
+* MOD (opcode `0x97`): divides two numbers on stack and puts the rest on stack
+
+**Exercise:** How do you calculate expression `(10 * (4 - 6) + 15 / 3) mod 7` on NeoVM? What is the expected result?
 
 {% include editor.html neovm=true size="small"%}
+
+**Solution:** result should be `1`.
+
+First part is: `(5 - 6)`. It can be computed using opcodes: `push5 push6 sub`.
+
+
+{% include stack.html stack="-1" %}
+<div class="editor-preview editor-text">push5 <span class="output">HALT</span>
+push6  <span class="output">HALT</span>
+sub  <span class="output">HALT</span>
+</div>
+
+
+How do you calculate expression `(3 * (5 - 6) + 15 / 2) mod 3`.
+
+-3 + 7
 
 ## Defining Words
 
