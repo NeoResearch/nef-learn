@@ -80,14 +80,17 @@
 
 \ note: using return stack (rstack) as alternative stack. perhaps better using another software stack
 
-\ adds 1 to the input
-: inc 1 add ;                    \ 0x8b
+\ dupfromaltstack 0x6a (defined after)
 
-: nvm.dupfromaltstack r> dup >r	 ; \ won't work because >r should be used together with r>
+\ move data to alternative stack
+: toaltstack >r ;                    \ 0x6b
 
-: nvm.toaltstack >r ;    \ won't work due to missing r>
+\ move data from alternative stack
+: fromaltstack >r ;                  \ 0x6c
 
-: nvm.fromaltstack r> ;  \ won't work due to missing >r
+\ duplicate data from alternative stack (implemented here after others, dup is native)
+: dupfromaltstack fromaltstack dup tostackstack  ;  \ 0x6a
+
 
 : nvm.dup dup ;  \ 0x76
 
