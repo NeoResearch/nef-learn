@@ -149,7 +149,7 @@ Finally, we perform the division by 3 and take the rest: `push3 mod`. Result sho
 {% include stack.html stack="1" %}
 
 Let's review the whole operations (step-by-step) and the result on stack: 
-    push5 push6 sub push3 mul push15 push2 div add push3 mod
+    `push5 push6 sub push3 mul push15 push2 div add push3 mod`
 
 {% include editor.html neovm=true size="small"%}
 
@@ -167,7 +167,13 @@ mod  <span class="output">HALT</span>
 </div>
 {% include stack.html stack="1" %}
 
-Try it step by step and make sure this is well understood before proceeding to next section ;)
+**Exercise:** How do you calculate `15 / (12 / 4)`?
+
+{% include editor.html neovm=true size="small"%}
+
+**Solution:** result should be `5`.
+
+Try to solve it and make sure this is well understood before proceeding to next section ;)
 
 
 ## Defining Words
