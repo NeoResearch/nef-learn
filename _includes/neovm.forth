@@ -91,23 +91,49 @@
 \ duplicate data from alternative stack (implemented here after others, dup is native)
 : dupfromaltstack fromaltstack dup tostackstack  ;  \ 0x6a
 
+\ 0x6c defined already
 
-\ move data to alternative stack
-: toaltstack >r ;                    \ 0x6b
+\ The item n back in the main stack is removed.
+: xdrop roll drop ;                  \ 0x6d
+
+\  The item n back in the main stack in swapped with top stack item.
+\        XSWAP = 0x72 (requires loop/if)
+
+\ The item on top of the main stack is copied and inserted to the position n in the main stack.
+\        XTUCK = 0x73, (requires loop/if)
+
+\ Puts the number of stack items onto the stack.
+\ depth native defined (opcode 0x74)
+
+\ Removes the top stack item.
+\ drop native defined (opcode 0x75)
+
+\ Duplicates the top stack item.
+\ dup native defined (opcode 0x76)
+
+\ Removes the second-to-top stack item.
+\ nip native defined (opcode 0x77)
+
+\ Copies the second-to-top stack item to the top.
+\ over native defined (opcode 0x78)
+
+\ The item n back in the stack is copied to the top.
+\ pick native defined (opcode 0x79)
+
+\ The item n back in the stack is moved to the top.
+\ roll native defined (opcode 0x7a)
+
+\ The top three items on the stack are rotated to the left.
+\ rot native defined (opcode 0x7b)
+
+\ The top two items on the stack are swapped.
+\ swap native defined (opcode 0x7c)
+
+\ The item at the top of the stack is copied and inserted before the second-to-top item.
+\ tuck native defined (opcode 0x7d)
 
 
-
-
-: nvm.dup dup ;  \ 0x76
-
-
-\ : nvm.xdrop   \todo
-
-\ : nvm.depth depth ; \ 0x74
-
-\ : move3 ( count -- ) 3 0 do dup . >r r@ loop 3 0 do r@ r> loop  ;
-
-
+\ begin arithmetic operators
 
 \ inc 0x8b (defined after add)
 \ dec 0x8c (defined after sub)
