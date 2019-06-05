@@ -111,14 +111,14 @@ This way, no parentheses is needed to perform any kind of arithmetic operation.
 
 ## Arithmetic operations
 
-You can play with several arithmetic operations:
+You can play with basic arithmetic operations:
 * ADD (opcode `0x93`): adds two numbers on stack
 * SUB (opcode `0x94`): subtracts two numbers on stack 
 * MUL (opcode `0x95`): multiplies two numbers on stack 
 * DIV (opcode `0x96`): divides two numbers on stack (integer division)
 * MOD (opcode `0x97`): divides two numbers on stack and puts the rest on stack
 
-**Exercise:** How do you calculate expression `(10 * (4 - 6) + 15 / 3) mod 7` on NeoVM? What is the expected result?
+**Exercise:** How do you calculate `(10 * (4 - 6) + 15 / 3) mod 7` on NeoVM? What is the expected result?
 
 {% include editor.html neovm=true size="small"%}
 
@@ -148,7 +148,8 @@ Finally, we perform the division by 3 and take the rest: `push3 mod`. Result sho
 
 {% include stack.html stack="1" %}
 
-Let's review the whole operations and the result on stack.
+Let's review the whole operations and the result on stack: 
+    push5 push6 sub push3 mul push15 push2 div add push3 mod
 
 {% include stack.html stack="1" %}
 <div class="editor-preview editor-text">push5 <span class="output">HALT</span>
@@ -163,6 +164,8 @@ add  <span class="output">HALT</span>
 push3  <span class="output">HALT</span>
 mod  <span class="output">HALT</span>
 </div>
+
+Try it step by step and make sure this is well understood before proceeding to next section ;)
 
 
 ## Defining Words
