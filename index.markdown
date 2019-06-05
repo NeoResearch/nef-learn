@@ -33,7 +33,7 @@ NeoVM supports seven different types of stack items.
 A NeoVM program is called _script_ (or _NeoVM script_), which is composed by several operations (called _opcodes_). Each opcode has a unique number and a unique name, in order to identify the operation.
 **For example:** opcode named `PUSH1`, number 81 (in hex, `81 = 0x51`), generates the number 1; opcode named `ADD`, number 147 (in hex, `147 = 0x93`) adds two numbers.
 
-## Push and Add Some Numbers
+## Push Some Numbers
 
 All information needs to be on NeoVM stack in order to be processed.
 For example, if you want to add two numbers, first you need to put them on the stack.
@@ -89,9 +89,11 @@ You can also write everything in a single line and press `Enter`:
 
 {% include editor.html neovm=true size="small"%}
 
-The stack should now look like this:
+The main stack now looks like this:
 
 {% include stack.html stack="13" %}
+
+### Polish notation and multiplication
 
 This style, where the operator appears after the operands, is known as
 [Reverse-Polish
@@ -104,21 +106,15 @@ Try the following:
 
 {% include editor.html neovm=true size="small"%}
 
-One of the nice things about Forth is that the order of operations is
-completely based on their order in the program. For example, when executing `5
-2 + 10 *`, the interpreter pushes 5 to the stack, then 2, then adds them and
-pushes the resulting 7, then pushes 10 to the stack, then multiplies 7 and 10.
-Because of this, there's no need for parentheses to group operators with lower
-precedence.
+The execution in NeoVM follows the order of opcodes in the given NVM script.
+This way, no parentheses is needed to perform any kind of arithmetic operation.
 
-### Stack Effects
+### More arithmetic operations
 
-Most Forth words affect the stack in some way. Some take values off the stack,
-some leave new values on the stack, and some do a mixture of both. These "stack
-effects" are commonly represented using comments of the form `( before -- after
-)`. For example, `+` is `( n1 n2 -- sum )` - `n1` and `n2` are the top two numbers
-on the stack, and `sum` is the value left on the stack.
+You can play with several arithmetic operations:
+* ADD (opcode ) 
 
+{% include editor.html neovm=true size="small"%}
 
 ## Defining Words
 
