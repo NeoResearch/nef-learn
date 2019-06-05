@@ -146,6 +146,23 @@ function addPredefinedWords(addToDictionary, readLines, next) {
     context.stack.push(a);
   });
 
+  // 1 2 3 nip .s     \ remove the second item (similar to drop):    1 3
+  addToDictionary("nip", function (context) {
+    var a = context.stack.pop();
+    context.stack.pop();
+    context.stack.push(a);
+  });
+
+  // 1 2 3 4 2 roll \ *move* the item at that position to the top:      1 3 4 2 ok
+  addToDictionary("roll", function (context) {
+    var index = context.stack.pop();
+    for(var k = 0; k < int(index)-1; k++)
+      context.returnStack.push(context.stack.pop());
+    var moved = context.stack.pop();
+    for(var k = 0; k < int(index)-1; k++)
+      context.stack.push(context.returnStack.pop());
+    context.stack.push(moved);
+  });
 
 
   // =================================================

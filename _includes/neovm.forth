@@ -95,7 +95,6 @@
 \ move data to alternative stack
 : toaltstack >r ;                    \ 0x6b
 
-
 : nvm.dup dup ;  \ 0x76
 
 
