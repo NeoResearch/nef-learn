@@ -135,6 +135,21 @@ function addPredefinedWords(addToDictionary, readLines, next) {
     context.stack.pop();
   });
 
+  // ==================== NR contributions ============== 
+  // (TODO: organize and submit PR)
+
+  // 1 2 3 4 tuck   \ duplicate the top item below the second slot:      1 2 4 3 4 ok
+  addToDictionary("tuck", function (context) {
+    var a = context.stack.pop(), b = context.stack.pop();
+    context.stack.push(a);
+    context.stack.push(b);
+    context.stack.push(a);
+  });
+
+
+
+  // =================================================
+
   addToDictionary("!", function (context) {
     var address = context.stack.pop();
     var value = context.stack.pop();

@@ -92,6 +92,10 @@
 : dupfromaltstack fromaltstack dup tostackstack  ;  \ 0x6a
 
 
+\ move data to alternative stack
+: toaltstack >r ;                    \ 0x6b
+
+
 : nvm.dup dup ;  \ 0x76
 
 
