@@ -80,6 +80,9 @@
 
 \ note: using return stack (rstack) as alternative stack. perhaps better using another software stack
 
+\ adds 1 to the input
+: inc 1 add ;                    \ 0x8b
+
 : nvm.dupfromaltstack r> dup >r	 ; \ won't work because >r should be used together with r>
 
 : nvm.toaltstack >r ;    \ won't work due to missing r>
@@ -97,12 +100,8 @@
 
 
 
-
-\ adds 1 to the input
-: inc 1 add ;                    \ 0x8b
-
-\ subtracts 1 from the input
-: dec 1 sub ;                    \ 0x8c
+\ inc 0x8b (defined after add)
+\ dec 0x8c (defined after sub)
 
 \ sign 8d (IF)
 
@@ -119,6 +118,12 @@
 
 \ subtract values on main stack
 : sub - ;                        \ 0x94
+
+\ adds 1 to the input (defined here because of add)
+: inc 1 add ;                    \ 0x8b
+
+\ subtracts 1 from the input (defined here because of sub)
+: dec 1 sub ;                    \ 0x8c
 
 \ multiply values on main stack
 : mul * ;                        \ 0x95
