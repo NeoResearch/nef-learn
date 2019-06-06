@@ -266,9 +266,9 @@ Resulting stack:
 
 ### Exercises 
 
-**Exercise:** If you have stack `1 2 3 4 5 6 7 <- top`, how can you put `2` before `7`? How many stack operations are needed? 
+**Exercise:** Consider stack `1 2 3 4 5 6 7 <- top`, how can you put `2` after `6`? How many stack operations are needed? 
 
-Result should be `1 3 4 5 6 2 7 <- top`.
+_Result should be `1 3 4 5 6 2 7 <- top`._
 
 {% include editor.html neovm=true size="small"%}
 
