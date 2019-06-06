@@ -286,6 +286,7 @@ Second, `swap` top elements.
 
 {% include stack.html stack="1 3 4 5 6 2 7" %}
 
+**Exercise:** Is there any other way to do it?
 
 ## Double-Stack model
 
