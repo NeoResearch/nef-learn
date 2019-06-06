@@ -6,7 +6,7 @@ var TRUE = -1;
 function Forth(next) {
   // Core structures
   var context = {
-    stack: Stack('Main Stack'),
+    stack: Stack('Evaluation Stack'),
     returnStack: Stack('Return Stack'),
     dictionary: Dictionary(),
     memory: Memory(),

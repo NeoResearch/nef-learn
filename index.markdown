@@ -345,7 +345,7 @@ Alternative Stack:
 
 
 
-## Arrays
+## Arrays (unfinished neovm part, do not proceed now)
 
 Forth doesn't exactly support arrays, but it does allow you to allocate a zone of
 contiguous memory, a lot like arrays in C. To allocate this memory, use the `allot`
