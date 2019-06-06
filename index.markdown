@@ -340,7 +340,11 @@ Alt Stack:
 
 {% include stack.html stack="2" %}
 
+### Exercises 
 
+**Exercise:** Consider an altstack with value `1`. What does the instructions `fromaltstack dup toaltstack push5 add` do? Try to re-write them with a small number of opcodes.
+
+{% include editor.html altstack=true neovm=true size="small"%}
 
 ## Generating Output
 
