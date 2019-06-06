@@ -302,8 +302,12 @@ Next sections will show important double-stack operations.
 
     push1 push2 push3 toaltstack
 
-Main Stack: {% include stack.html stack="1 2" %}
-Alt Stack: {% include stack.html stack="3" %}
+Main Stack: 
+{% include stack.html stack="1 2" %}
+
+Alt Stack:
+
+{% include stack.html stack="3" %}
 
 {% include editor.html altstack=true neovm=true size="small"%}
 
