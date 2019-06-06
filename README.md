@@ -1,8 +1,6 @@
 # nvm-learn
 
-This project intends to provide easy interactive learning of NeoVM (Neo Blockchain Virtual Machine).
-THis tutorial is based on "Learn Forth!" tutorial by @skilldrick on language FORTH.
-Original website: http://skilldrick.github.io/easyforth
+This project intends to provide easy interactive learning of NeoVM (Neo Blockchain Virtual Machine). ( * ) A tutorial based on "Learn Forth!" tutorial by @skilldrick on language FORTH.
 
 ## how to contribute
 
