@@ -89,7 +89,7 @@
 : fromaltstack r> ;                  \ 0x6c
 
 \ duplicate data from alternative stack (implemented here after others, dup is native)
-: dupfromaltstack fromaltstack dup tostackstack  ;  \ 0x6a
+: dupfromaltstack fromaltstack dup toaltstack  ;  \ 0x6a
 
 \ 0x6c defined already
 
