@@ -118,6 +118,8 @@ You can play with basic arithmetic operations:
 * DIV (opcode `0x96`): divides two numbers on stack (integer division)
 * MOD (opcode `0x97`): divides two numbers on stack and puts the rest on stack
 
+### Exercises 
+
 **Exercise:** How do you calculate `(10 * (4 - 6) + 15 / 3) mod 7` on NeoVM? What is the expected result?
 
 {% include editor.html neovm=true size="small"%}
@@ -184,7 +186,7 @@ NeoVM inherits several operations from Forth language, specially those connected
 
 `dup` duplicates the top element of the stack. Example:
 
-    1 2 3 dup
+    push1 push2 push3 dup
 
 {% include editor.html size="small" %}
 
@@ -196,7 +198,7 @@ Resulting stack:
 
 `drop` removes the top element of the stack. Example:
 
-    1 2 3 drop
+    push1 push2 push3 drop
 
 Resulting stack:
 
@@ -206,7 +208,7 @@ Resulting stack:
 
 `swap` simply swaps the top two elements of the stack. Example:
 
-    1 2 3 4 swap
+    push1 push2 push3 push4 swap
 
 Resulting stack:
 
@@ -217,7 +219,7 @@ Resulting stack:
 `over` takes the **second** element from the top of the
 stack and duplicates it to the top of the stack. Example:
 
-    1 2 3 over
+    push1 push2 push3 over
 
 Resulting stack:
 
@@ -227,11 +229,41 @@ Resulting stack:
 
 `rot` applied a "rotation" the **top three** elements of the stack. Example:
 
-    1 2 3 4 5 6 rot
+    push1 push2 push3 push4 push5 push6 rot
 
 Resulting stack:
 
 {% include stack.html stack="1 2 3 5 6 4" %}
+
+### `roll` (opcode `0x7a`)
+
+`roll` reads `n` and moves `n`-th element to top stack. Example:
+
+    push1 push2 push3 push4 push2 roll
+
+Resulting stack:
+
+{% include stack.html stack="1 3 4 2" %}
+
+### `pick` (opcode `0x79`)
+
+`pick` reads `n` and copies `n`-th element to top stack. Example:
+
+    push1 push2 push3 push4 push2 pick
+
+Resulting stack:
+
+{% include stack.html stack="1 2 3 4 2" %}
+
+### Exercises 
+
+**Exercise:** If you have stack `1 2 3 4 5 6 7 <- top`, how can you put `2` before `7`? How many stack operations are needed? 
+
+Result should be `1 3 4 5 6 2 7 <- top`.
+
+{% include editor.html neovm=true size="small"%}
+
+**Solution:** result should be `1 3 4 5 6 2 7 <- top`.
 
 ## Double-Stack model
 

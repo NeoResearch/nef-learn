@@ -132,7 +132,7 @@
 \ The item at the top of the stack is copied and inserted before the second-to-top item.
 \ tuck native defined (opcode 0x7d)
 
-
+\ ==========================
 \ begin arithmetic operators
 
 \ inc 0x8b (defined after add)
