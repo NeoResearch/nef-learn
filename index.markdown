@@ -304,11 +304,10 @@ Next sections will show important double-stack operations.
 
     push1 push2 push3 toaltstack
 
-Main Stack: 
+Evaluation Stack: 
 {% include stack.html stack="1 2" %}
 
-Alt Stack:
-
+Alternative Stack:
 {% include stack.html stack="3" %}
 
 {% include editor.html altstack=true neovm=true size="small"%}
@@ -319,11 +318,10 @@ Alt Stack:
 
     push1 push2 toaltstack push3 fromaltstack
 
-Main Stack: 
+Evaluation Stack: 
 {% include stack.html stack="1 3 2" %}
 
-Alt Stack:
-
+Alternative Stack:
 {% include stack.html stack="" %}
 
 
@@ -333,11 +331,10 @@ Alt Stack:
 
     push1 push2 toaltstack push3 dupfromaltstack
 
-Main Stack: 
+Evaluation Stack: 
 {% include stack.html stack="1 3 2" %}
 
-Alt Stack:
-
+Alternative Stack:
 {% include stack.html stack="2" %}
 
 ### Exercises 
