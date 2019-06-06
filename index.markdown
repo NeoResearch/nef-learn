@@ -188,7 +188,7 @@ NeoVM inherits several operations from Forth language, specially those connected
 
     push1 push2 push3 dup
 
-{% include editor.html size="small" %}
+{% include editor.html neovm=true size="small" %}
 
 Resulting stack:
 
