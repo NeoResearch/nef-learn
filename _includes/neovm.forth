@@ -86,7 +86,7 @@
 : toaltstack >r ;                    \ 0x6b
 
 \ move data from alternative stack
-: fromaltstack >r ;                  \ 0x6c
+: fromaltstack r> ;                  \ 0x6c
 
 \ duplicate data from alternative stack (implemented here after others, dup is native)
 : dupfromaltstack fromaltstack dup tostackstack  ;  \ 0x6a
