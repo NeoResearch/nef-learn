@@ -203,6 +203,20 @@
 \ Returns 1 if x is within the specified range (left-inclusive), 0 otherwise.
 \ WITHIN = 0xA5,
 
+\ ====================
+variable nvmarraytest            \ single global for array tests
+
+\ An input index n (or key) and an array (or map) are taken from main stack. Element array[n] (or map[n]) is put on top of the main stack.
+: pickitem swap cells swap nvmarraytest + ? ;            \ 0xc3
+        \ PICKITEM = 0xC3,
+\        /// <summary>
+\        /// A value v, index n (or key) and an array (or map) are taken from main stack. Attribution array[n]=v (or map[n]=v) is performed.
+\        /// </summary>
+\ SETITEM = 0xC4,
+
+\ newarray
+: newarray nvmarraytest swap cells allot ;            \ 0xc5
+
 
 \ bye
 
