@@ -175,6 +175,15 @@ function addPredefinedWords(addToDictionary, readLines, next) {
     context.stack.push(copied);
   });
 
+
+  // clears both stacks
+  addToDictionary("clearstacks", function (context) {
+    context.returnStack.clear();
+    context.stack.clear();
+  });
+  
+  
+
   // =================================================
 
   addToDictionary("!", function (context) {

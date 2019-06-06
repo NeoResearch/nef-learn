@@ -23,6 +23,10 @@ function Stack(name) {
     },
     print: function () {
       return arr.join(" ") + " <- Top";
+    },
+    // NR contributed function. TODO: create PR
+    clear : function() {
+      arr = [];
     }
   };
 }
