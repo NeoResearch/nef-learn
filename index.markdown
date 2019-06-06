@@ -313,7 +313,7 @@ Alt Stack:
 
 {% include editor.html altstack=true neovm=true size="small"%}
 
-### `fromaltstack` (opcode `0x6b`)
+### `fromaltstack` (opcode `0x6c`)
 
 `fromaltstack` moves top element from Alternative Stack and moves it to the Evaluation Stack (the Main Stack). Example:
 
@@ -327,7 +327,18 @@ Alt Stack:
 {% include stack.html stack="" %}
 
 
+### `dupfromaltstack` (opcode `0x6a`)
 
+`dupfromaltstack` copies top element from Alternative Stack to the Evaluation Stack. Example:
+
+    push1 push2 toaltstack push3 dupfromaltstack
+
+Main Stack: 
+{% include stack.html stack="1 3 2" %}
+
+Alt Stack:
+
+{% include stack.html stack="2" %}
 
 
 
