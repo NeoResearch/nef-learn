@@ -263,7 +263,20 @@ Result should be `1 3 4 5 6 2 7 <- top`.
 
 {% include editor.html neovm=true size="small"%}
 
-**Solution:** result should be `1 3 4 5 6 2 7 <- top`.
+**Solution:** this can be done on two operations.
+
+First, `roll` the `6`-th element to the top stack.
+
+<div class="editor-preview editor-text">push6 <span class="output">HALT</span>
+roll  <span class="output">HALT</span>
+</div>
+
+{% include stack.html stack="1 3 4 5 6 7 2" %}
+
+Second, `swap` top elements.
+
+{% include stack.html stack="1 3 4 5 6 2 7" %}
+
 
 ## Double-Stack model
 
