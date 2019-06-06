@@ -237,6 +237,8 @@ Resulting stack:
 
 ### Exercises
 
+**Exercise:** try to calculate `15 / (12 / 4)`, starting with `push12` operation.
+
 **Exercise:** practice stack opcodes a little bit.
 
 {% include editor.html neovm=true size="small"%}
@@ -310,6 +312,23 @@ Alt Stack:
 {% include stack.html stack="3" %}
 
 {% include editor.html altstack=true neovm=true size="small"%}
+
+### `fromaltstack` (opcode `0x6b`)
+
+`fromaltstack` moves top element from Alternative Stack and moves it to the Evaluation Stack (the Main Stack). Example:
+
+    push1 push2 toaltstack push3 fromaltstack
+
+Main Stack: 
+{% include stack.html stack="1 3 2" %}
+
+Alt Stack:
+
+{% include stack.html stack="" %}
+
+
+
+
 
 
 ## Generating Output
