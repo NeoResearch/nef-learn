@@ -243,6 +243,16 @@ Resulting stack:
 
 In next sections, we will see stack opcodes that receive parameters from stack.
 
+### `pick` (opcode `0x79`)
+
+`pick` reads `n` and copies `n`-th element to top stack. Example:
+
+    push1 push2 push3 push4 push2 pick
+
+Resulting stack:
+
+{% include stack.html stack="1 2 3 4 2" %}
+
 ### `roll` (opcode `0x7a`)
 
 `roll` reads `n` and moves `n`-th element to top stack. Example:
@@ -253,15 +263,6 @@ Resulting stack:
 
 {% include stack.html stack="1 3 4 2" %}
 
-### `pick` (opcode `0x79`)
-
-`pick` reads `n` and copies `n`-th element to top stack. Example:
-
-    push1 push2 push3 push4 push2 pick
-
-Resulting stack:
-
-{% include stack.html stack="1 2 3 4 2" %}
 
 ### Exercises 
 
