@@ -339,7 +339,7 @@ Alternative Stack:
 
 ### Exercises 
 
-**Exercise:** Consider an altstack with value `1`. What does the instructions `fromaltstack dup toaltstack push5 add` do? Try to re-write them with a small number of opcodes.
+**Exercise:** Consider an altstack with value `1` (just run `push1 toaltstack`). What does the instructions `fromaltstack dup toaltstack push5 add` do? Try to re-write them with a small number of opcodes.
 
 {% include editor.html altstack=true neovm=true size="small"%}
 
