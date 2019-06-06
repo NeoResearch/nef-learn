@@ -1,4 +1,7 @@
 <div class="editor editor-text {{ include.size }} {% if include.canvas %}has-canvas{% endif %}">
+  {% if include.altstack %}
+  Ev Stack:
+  {% endif %}
   <div class="stack-viewer">&nbsp;  </div>
   {% if include.altstack %}
   Alt Stack: <div class="altstack-viewer">&nbsp;  </div>
