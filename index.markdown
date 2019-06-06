@@ -292,19 +292,20 @@ Second, `swap` top elements.
 
 NeoVM includes a _double-stack_ design, so we need operations also for both the Evaluation Stack (which we've seen already) and the Alternative Stack.
 
-On FORTH language, this stack is called _return stack_, and it is used for loops and other temporary storages, besides storing the return pointer. This limits the _return stack_ usage, since loops can interfere in stack operations, that's why FORTH also includes a _global storage map_. Although, NeoVM doesn't have a global storage map, it can successfully execute operations only using two stacks and by using arrays as temporary storage (will be explored in later sections).
+On FORTH language, this stack is called _return stack_, and it is only used for loops and other temporary storages, since it also stores the execution return pointer. This limits the _return stack_ usage, since loops can interfere in stack operations, that's why FORTH also includes a _global storage map_. Although, NeoVM doesn't have a global storage map, it can successfully execute operations only using two stacks and by using arrays as temporary storage (will be explored in later sections).
 
 Next sections will show important double-stack operations.
 
-### `pick` (opcode `0x79`)
+### `toaltstack` (opcode `0x6b`)
 
-`pick` reads `n` and copies `n`-th element to top stack. Example:
+`toaltstack` moves top element (from Evaluation Stack) and moves it to the Alternative Stack. Example:
 
-    push1 push2 push3 push4 push2 pick
+    push1 push2 push3 toaltstack
 
-Resulting stack:
+Main Stack: {% include stack.html stack="1 2" %}
+Alt Stack: {% include stack.html stack="3" %}
 
-{% include stack.html stack="1 2 3 4 2" %}
+{% include editor.html altstack=true neovm=true size="small"%}
 
 
 ## Generating Output
