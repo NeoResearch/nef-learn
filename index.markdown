@@ -235,6 +235,14 @@ Resulting stack:
 
 {% include stack.html stack="1 2 3 5 6 4" %}
 
+### Exercises
+
+**Exercise:** practice stack opcodes a little bit.
+
+{% include editor.html neovm=true size="small"%}
+
+In next sections, we will see stack opcodes that receive parameters from stack.
+
 ### `roll` (opcode `0x7a`)
 
 `roll` reads `n` and moves `n`-th element to top stack. Example:
