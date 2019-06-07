@@ -7,6 +7,10 @@ function Memory() {
     return _memPointer++;
   }
 
+  function getHere() {
+    return _memPointer;
+  }
+
   function addVariable(name) {
     var address = newMemPointer();
     variables[name.toLowerCase()] = address;
