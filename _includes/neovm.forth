@@ -214,6 +214,9 @@ variable nvmarraytest            \ single global for array tests (warming-up var
 \        /// A value v, index n (or key) and an array (or map) are taken from main stack. Attribution array[n]=v (or map[n]=v) is performed.
 \        /// </summary>
 \ SETITEM = 0xC4,
+: setitem swap 1 + rot + ! ;                                 \ 0xc3
+\ 1600 0 10
+
 
 \ newarray  (alloc n spaces + 1 for count)
 : newarray dup here swap push1 add cells allot dup rot swap ! ;    \ 0cx5
