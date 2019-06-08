@@ -77,6 +77,22 @@ function Forth(next) {
     });
   }
 
+  // Neo blockchain only. TODO: do not need to contribute this part (not FORTH related)
+  function invokeNeoSyscall(name) {
+    if(name == "Neo.Learn.Alert")
+    {
+      var str = context.stack.pop();
+      alert(str);
+    }
+    else if(name == "Neo.Learn.Log")
+    {
+      var str = context.stack.pop();
+      console.log(str);
+    } 
+    else
+      throw new MissingSyscallError(name);
+  }
+
   function createConstant(name, value) {
     addToDictionary(name, function (context) {
       context.stack.push(value);
@@ -104,6 +120,9 @@ function Forth(next) {
     switch (action.code) {
     case "variable":
       createVariable(tokenizer.nextToken().value);
+      break;
+    case "syscall": // Neo blockchain only
+      invokeNeoSyscall(tokenizer.nextToken().value);
       break;
     case "constant":
       createConstant(tokenizer.nextToken().value, context.stack.pop());

@@ -9,6 +9,7 @@ function addPredefinedWords(addToDictionary, readLines, next) {
   [
     ":", ";", "if", "else", "then", "do", "loop",
     "+loop", "begin", "until", "variable", "constant", "key"
+    , "syscall" // for Neo blockchain only
   ].forEach(function (code) {
     addToDictionary(code, controlCode(code));
   });
