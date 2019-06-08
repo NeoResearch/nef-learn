@@ -214,8 +214,8 @@ variable nvmarraytest            \ single global for array tests (warming-up var
 \        /// </summary>
 \ SETITEM = 0xC4,
 
-\ newarray 
-: newarray here swap cells allot ;                      \ 0cx5
+\ newarray  (alloc n spaces + 1 for count)
+: newarray dup here swap push1 add cells allot dup rot swap ! ;    \ 0cx5
 
 
 \ bye
