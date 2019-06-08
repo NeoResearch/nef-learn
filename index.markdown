@@ -532,7 +532,7 @@ _______________|________________________________|____________
 To inspect what happened, use the following commands to get array from altstack and pick inside it:
 `dupfromaltstack 1 pickitem` (gets first element), `drop`, `dupfromaltstack 0 pickitem` (gets second element).
 
-**Exercise:** replace the code above with a much simpler operation.
+**Exercise:** replace the code above (`PUSH2 NEWARRAY TOALTSTACK DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM DUPFROMALTSTACK PUSH1 PUSH2 ROLL SETITEM`) by a much simpler operation.
 
 {% include editor.html altstack=true neovm=true size="small"%}
 
