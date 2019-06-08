@@ -632,6 +632,39 @@ Note the space between `s"` and `Hello World"`, this is necessary for string par
 
 If you have a desktop-based browser, you can also try `Neo.Learn.Log`, which puts content on browser console log system.
 
+Other interesting syscalls here are: `Neo.Learn.Sleep`, that reads an input from stack and sleeps during this given time (in milliseconds); and `Neo.Learn.Random`, that generates a random number between `0` and stack top value.
+
+**Example:** try pushing `16` to the stack (via `push16`) and counting how many times `syscall Neo.Learn.Random` takes to make this value become zero ;)
+
+A **possible** outcome is:
+
+<div class="editor-preview editor-text">push16 <span class="output">HALT</span>
+</div>
+
+{% include stack.html stack="16" %}
+
+<div class="editor-preview editor-text">syscall Neo.Learn.Random <span class="output">HALT</span>
+</div>
+
+{% include stack.html stack="7" %}
+
+<div class="editor-preview editor-text">syscall Neo.Learn.Random <span class="output">HALT</span>
+</div>
+
+{% include stack.html stack="5" %}
+
+<div class="editor-preview editor-text">syscall Neo.Learn.Random <span class="output">HALT</span>
+</div>
+
+{% include stack.html stack="3" %}
+
+<div class="editor-preview editor-text">syscall Neo.Learn.Random <span class="output">HALT</span>
+</div>
+
+{% include stack.html stack="0" %}
+
+
+
 ## Conditionals, Loops and Function Calls
 
 Conditionals and loops are implemented on NeoVM via the use o jumps.
