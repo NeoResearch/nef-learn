@@ -579,6 +579,30 @@ Opcode `add` performs the sum:
 
 Finally, we need to store the result of `2*x1 + x2` back on `x1`. Opcodes `DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM` do the job.
 
+**Summary:** to run the complete example, type this:
+
+<div class="editor-preview editor-text">push15 push10 <span class="output">HALT</span>
+PUSH2 NEWARRAY TOALTSTACK <span class="output">HALT</span>
+DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM <span class="output">HALT</span>
+DUPFROMALTSTACK PUSH1 PUSH2 ROLL SETITEM <span class="output">HALT</span>
+push2 <span class="output">HALT</span>
+DUPFROMALTSTACK PUSH0 PICKITEM <span class="output">HALT</span>
+mul <span class="output">HALT</span>
+DUPFROMALTSTACK PUSH1 PICKITEM <span class="output">HALT</span>
+add <span class="output">HALT</span>
+DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM<span class="output">HALT</span>
+</div>
+
+To check that result was actually stored on the array, just do:
+<div class="editor-preview editor-text">dupfromaltstack push0 pickitem <span class="output">HALT</span>
+</div>
+
+Stack should contain `35`:
+
+{% include stack.html stack="35" %}
+
+{% include editor.html altstack=true neovm=true size="small"%}
+
 **Challenge:** This code can be actually compiled and tested on [NeoCompiler Eco (neocompiler.io)](https://neocompiler.io), generating the following opcodes (in hex): `52-c5-6b-6a-00-52-7a-c4-6a-51-52
 7a-c4-52-6a-00-c3-95-6a-51-c3-93-6a-00-52-7a-c4-61-6c-75-66`.
 Use `disassembly` options to inspect and understand how compilation process work for NeoVM.
