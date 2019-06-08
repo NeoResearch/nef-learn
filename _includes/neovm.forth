@@ -80,18 +80,14 @@
 
 \ note: using return stack (rstack) as alternative stack. perhaps better using another software stack
 
-\ dupfromaltstack 0x6a (defined after)
+\ duplicate data from alternative stack (could be `fromaltstack dup toaltstack`)
+: dupfromaltstack r@ ;               \ 0x6a
 
 \ move data to alternative stack
 : toaltstack >r ;                    \ 0x6b
 
 \ move data from alternative stack
 : fromaltstack r> ;                  \ 0x6c
-
-\ duplicate data from alternative stack (implemented here after others, dup is native)
-: dupfromaltstack r@ ; \ fromaltstack dup toaltstack  ;  \ 0x6a
-
-\ 0x6c defined already
 
 \ The item n back in the main stack is removed.
 : xdrop roll drop ;                  \ 0x6d
