@@ -590,7 +590,7 @@ DUPFROMALTSTACK PUSH0 PICKITEM <span class="output">HALT</span>
 mul <span class="output">HALT</span>
 DUPFROMALTSTACK PUSH1 PICKITEM <span class="output">HALT</span>
 add <span class="output">HALT</span>
-DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM<span class="output">HALT</span>
+DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM <span class="output">HALT</span>
 </div>
 
 To check that result was actually stored on the array, just do:
@@ -603,8 +603,7 @@ Stack should contain `35`:
 
 {% include editor.html altstack=true neovm=true size="small"%}
 
-**Challenge:** This code can be actually compiled and tested on [NeoCompiler Eco (neocompiler.io)](https://neocompiler.io), generating the following opcodes (in hex): `52-c5-6b-6a-00-52-7a-c4-6a-51-52
-7a-c4-52-6a-00-c3-95-6a-51-c3-93-6a-00-52-7a-c4-61-6c-75-66`.
+**Challenge:** This code can be actually compiled and tested on [NeoCompiler Eco (neocompiler.io)](https://neocompiler.io), generating the following opcodes (in hex): `52-c5-6b-6a-00-52-7a-c4-6a-51-52-7a-c4-52-6a-00-c3-95-6a-51-c3-93-6a-00-52-7a-c4-61-6c-75-66`.
 Use `disassembly` options to inspect and understand how compilation process work for NeoVM.
 
 ## Keyboard Input (do not read after this part... old easyforth tutorial)
