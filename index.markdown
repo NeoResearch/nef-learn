@@ -579,7 +579,7 @@ Opcode `add` performs the sum:
 
 Finally, we need to store the result of `2*x1 + x2` back on `x1`. Opcodes `DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM` do the job.
 
-**Challenge:** This code can be actually compiled and tested on [NeoCompiler Eco](https://neocompiler.io), generating the following opcodes (in hex): `52-c5-6b-6a-00-52-7a-c4-6a-51-52
+**Challenge:** This code can be actually compiled and tested on [NeoCompiler Eco (neocompiler.io)](https://neocompiler.io), generating the following opcodes (in hex): `52-c5-6b-6a-00-52-7a-c4-6a-51-52
 7a-c4-52-6a-00-c3-95-6a-51-c3-93-6a-00-52-7a-c4-61-6c-75-66`.
 Use `disassembly` options to inspect and understand how compilation process work for NeoVM.
 
