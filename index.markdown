@@ -409,6 +409,11 @@ Let's verify its size, so perform `dup arraysize` and you should get `2` on top 
 
 You can `drop` value `2` now.
 
+<div class="editor-preview editor-text">push2 newarray <span class="output">HALT</span>
+dup arraysize  <span class="output">HALT</span>
+drop  <span class="output">HALT</span>
+</div>
+
 {% include stack.html stack="1578" %}
 
 
