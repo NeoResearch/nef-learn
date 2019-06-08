@@ -630,6 +630,13 @@ Note the space between `s"` and `Hello World"`, this is necessary for string par
 
 If you have a desktop-based browser, you can also try `Neo.Learn.Log`, which puts content on browser console log system.
 
+## Conditionals, Loops and Function Calls
+
+Conditionals and loops are implemented on NeoVM via the use o jumps.
+Basically, a jump changes the current instruction counter and moves it to another 
+position in the _NVM script_, affecting which operations will be read after that.
+Since this is not directly related to the stack execution model, it will only be covered in future tutorials.
+
 ## Snake!
 
 Now it's time to put it all together and make a game! Rather than having you type
@@ -646,12 +653,6 @@ Forth code. I'm by no means a Forth expert, so there's probably all kinds of thi
 I'm doing in completely the wrong way. Second, this game uses a few non-standard
 techniques in order to interface with JavaScript. I'll go through these now.
 
-## Conditionals, Loops and Function Calls
-
-Conditionals and loops are implemented on NeoVM via the use o jumps.
-Basically, a jump changes the current instruction counter and moves it to another 
-position in the _NVM script_, affecting which operations will be read after that.
-Since this is not related to the stack execution model, it will only be covered in future tutorials.
 
 
 ## Ending Words
