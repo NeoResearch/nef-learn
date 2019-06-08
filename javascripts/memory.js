@@ -39,6 +39,7 @@ function Memory() {
     getVariable: getVariable,
     setValue: setValue,
     getValue: getValue,
+    getHere: getHere,
     allot: allot
   };
 }
