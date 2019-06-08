@@ -226,6 +226,7 @@ function addPredefinedWords(addToDictionary, readLines, next) {
     };
   });
 
+  /*
   addToDictionary("sleep", function (context) {
     var timeout = context.stack.pop();
     context.pause = true;
@@ -240,6 +241,7 @@ function addPredefinedWords(addToDictionary, readLines, next) {
     var range = context.stack.pop();
     context.stack.push(Math.floor(Math.random() * range));
   });
+  */
 
   readLines([
     ": cells   1 * ;",

@@ -93,6 +93,21 @@ function Forth(next) {
       var str = context.stack.pop();
       console.log(str);
     } 
+    else if(name == "Neo.Learn.Sleep")
+    {
+      var timeout = context.stack.pop();
+      context.pause = true;
+  
+      setTimeout(function () {
+        context.pause = false;
+        context.onContinue();
+      }, timeout);
+    } 
+    else if(name == "Neo.Learn.Random")
+    {
+      var range = context.stack.pop();
+      context.stack.push(Math.floor(Math.random() * range));
+    }
     else
       throw new MissingSyscallError(name);
   }
