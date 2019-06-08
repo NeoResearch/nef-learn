@@ -24,7 +24,7 @@ NeoVM supports seven different types of stack items.
 * Byte Arrays: general byte arrays
 * Booleans: a true/false value
 * Arrays: an array can contain a collection of other stack items, including more Arrays (_important: this is a reference type, not value type_)
-* Structs: similar to an array, it can contain several stack items inside it
+* Structs: similar to an array, it can contain several stack items inside it (_struct is a value type_)
 * Maps: a map can contain a byte array mapping from a key to a value, that may be another stack item
 * Interop Interfaces: these stack items are only meant to used for interoperating with high-level implementations of NeoVM, such as NeoContract (the Application Engine for Neo Blockchain)
 
