@@ -467,6 +467,9 @@ dup push1 pickitem <span class="output">HALT</span>
 
 {% include stack.html stack="1578 15" %}
 
+**Exercise:** Try to put values `10` and `15` in the array (like previous example), and then swap both elements inside it (position `0` will have value `15`, and position `1` will have value `10`).
+
+**Next section:**
 Let's see how an Array can be useful for storing data on multiple stacks.
 
 ### Value and Reference types
