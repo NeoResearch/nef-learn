@@ -456,8 +456,6 @@ Let's drop the `10` and try to get the value at index `1` (try by yourself befor
 Final solution (step by step):
 
 <div class="editor-preview editor-text">push2 newarray <span class="output">HALT</span>
-dup arraysize  <span class="output">HALT</span>
-drop  <span class="output">HALT</span>
 dup push0 push10 setitem <span class="output">HALT</span>
 dup push1 push15 setitem <span class="output">HALT</span>
 dup push0 pickitem <span class="output">HALT</span>
