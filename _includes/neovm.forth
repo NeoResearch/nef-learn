@@ -218,13 +218,13 @@ variable nvmarraytest            \ single global for array tests (warming-up var
 \ 1600 0 10 -> 1600[1] = 10
 
 \ arraysize is position zero of array
-: arraysize 0 add @ ;
+: arraysize push0 add @ ;
 
 \ newarray  (alloc n spaces + 1 for count)
 : newarray dup here swap push1 add cells allot dup rot swap ! ;    \ 0cx5
 
-\ pack
-: pack dup newarray toaltstack 0 do fromaltstack dupfromaltstack swap dup toaltstack rot setitem loop fromaltstack ;
+\ pack (using `do loop` in return stack, may not work on gforth)
+: pack dup newarray toaltstack push0 do fromaltstack dupfromaltstack swap dup toaltstack rot setitem loop fromaltstack ;
 
 \ bye
 
