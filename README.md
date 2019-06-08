@@ -4,7 +4,7 @@ This project intends to provide easy interactive learning of NeoVM (Neo Blockcha
 
 ![NVM-Learn-Exercise](./images/front-exercise.png)
 
-**Topics:**
+## Covered Topics
 
 - [Introduction](https://neoresearch.io/nvm-learn/#introduction)
 - ...
