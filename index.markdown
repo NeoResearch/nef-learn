@@ -604,49 +604,11 @@ Stack should contain `35`:
 {% include editor.html altstack=true neovm=true size="small"%}
 
 **Challenge:** This code can be actually compiled and tested on [NeoCompiler Eco (neocompiler.io)](https://neocompiler.io), generating the following opcodes (in hex): `52-c5-6b-6a-00-52-7a-c4-6a-51-52-7a-c4-52-6a-00-c3-95-6a-51-c3-93-6a-00-52-7a-c4-61-6c-75-66`.
-Use `disassembly` options to inspect and understand how compilation process work for NeoVM.
+Use the disassembly options from the website to inspect and understand how compilation process work for NeoVM.
 
-## Keyboard Input (do not read after this part... old easyforth tutorial)
-
-Forth has a special word called `key`, which is used for accepting keyboard input.
-When the `key` word is executed, execution is paused until a key is pressed. Once
-a key is pressed, the key code of that key is pushed onto the stack. Try out the
-following:
-
-    key . key . key .
-
-{% include editor.html size="small"%}
-
-When you run this line, you'll notice that at first nothing happens. This is because
-the interpreter is waiting for your keyboard input. Try hitting the `A` key, and
-you should see the keycode for that key, `65`, appear as output on the current line.
-Now hit `B`, then `C`, and you should see the following:
-
-<div class="editor-preview editor-text">key . key . key . <span class="output">65 66 67  ok</span></div>
+## Syscalls
 
 
-### Printing keys with `begin until`
-
-Forth has another kind of loop called `begin until`. This works like a `while`
-loop in C-based languages. Every time the word `until` is hit, the interpreter
-checks to see if the top of the stack is non-zero (true). If it is, it jumps
-back to the matching `begin`. If not, execution continues.
-
-Here's an example of using `begin until` to print key codes:
-
-    : print-keycode  begin key dup . 32 = until ;
-    print-keycode
-
-{% include editor.html size="small"%}
-
-This will keep printing key codes until you press space. You should see something like this:
-
-<div class="editor-preview editor-text">print-keycode <span class="output">80 82 73 78 84 189 75 69 89 67 79 68 69 32  ok</span></div>
-
- `key` waits for key input, then `dup` duplicates the keycode from `key`. We
-then use `.` to output the top copy of the keycode, and `32 =` to check to see
-if the keycode is equal to 32. If it is, we break out of the loop, otherwise we
-loop back to `begin`.
 
 
 ## Snake!
