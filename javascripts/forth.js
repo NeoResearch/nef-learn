@@ -39,6 +39,11 @@ function Forth(next) {
       return namedFunction("String: " + word, function (context) {
         return word;
       });
+    }
+    else if (token.isStringPushLiteral) {
+      return namedFunction("PushString: " + word, function (context) {
+        return word;
+      });
     } else if (definition !== null) {
       return definition;
     } else if (isFinite(word)) {

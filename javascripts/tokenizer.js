@@ -55,12 +55,13 @@ function Tokenizer(input) {
   function getNextToken() {
     skipWhitespace();
     var isStringLiteral = hasCharsAtIndex('." ', index);
+    var isStringPushLiteral = hasCharsAtIndex('s" ', index);
     var isParenComment = hasCharsAtIndex('( ', index);
     var isSlashComment = hasCharsAtIndex('\\ ', index);
 
     var value = "";
 
-    if (isStringLiteral) {
+    if (isStringLiteral || isStringPushLiteral) {
       value = processString();
     } else if (isParenComment) {
       processParenComment();
@@ -77,7 +78,8 @@ function Tokenizer(input) {
 
     return {
       value: value,
-      isStringLiteral: isStringLiteral
+      isStringLiteral: isStringLiteral,
+      isStringPushLiteral : isStringPushLiteral
     };
   }
 
