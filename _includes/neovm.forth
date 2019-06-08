@@ -207,16 +207,18 @@
 variable nvmarraytest            \ single global for array tests (warming-up var system)
 
 \ An input index n (or key) and an array (or map) are taken from main stack. Element array[n] (or map[n]) is put on top of the main stack.
-\\\: pickitem swap cells swap nvmarraytest + ? ; \ 0xc3
 : pickitem cells push1 add add @ ;                                 \ 0xc3
+\ 1600 0 pickitem -> 1600[1]
         \ PICKITEM = 0xC3,
 \        /// <summary>
 \        /// A value v, index n (or key) and an array (or map) are taken from main stack. Attribution array[n]=v (or map[n]=v) is performed.
 \        /// </summary>
 \ SETITEM = 0xC4,
-: setitem swap 1 + rot + ! ;                                 \ 0xc3
-\ 1600 0 10
+: setitem swap push1 add rot add ! ;                                 \ 0xc3
+\ 1600 0 10 -> 1600[1] = 10
 
+\ arraysize is position zero of array
+: arraysize 0 pickitem ;
 
 \ newarray  (alloc n spaces + 1 for count)
 : newarray dup here swap push1 add cells allot dup rot swap ! ;    \ 0cx5
