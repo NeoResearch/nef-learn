@@ -691,16 +691,12 @@ word `start`. Then use the arrow keys to move the snake. If you lose, you can ru
 {% include editor.html canvas=true game=true %}
 
 
-## Ending Words
+## Acknowledgements
 
-Forth is actually much more powerful than what I've taught here (and what I
-implemented in my interpreter). A true Forth system allows you to modify how
-the compiler works and create new defining words, allowing you to completely
-customize your environment and create your own languages within Forth.
+This tutorial is a _non-standard_ implementation of both NeoVM and also Forth language, which are both much more powerful than presented here.
+The Snake game is a hybrid NVM/FORTH adaptation of the one proposed on EasyForth tutorial, and we are greatly grateful for this to be made available on GitHub.
+If you are a Forth or NeoVM expert, feel free to contribute!
 
-A great resource for learning the full power of Forth is the short book
-["Starting Forth"](http://www.forth.com/starting-forth/) by Leo Brodie. It's
-available for free online and teaches you all the fun stuff I left out. It also
-has a good set of exercises for you to test out your knowledge. You'll need to
-download a copy of [SwiftForth](http://www.forth.com/swiftforth/dl.html) to run
-the code though.
+Follow us on GitHub and Twitter ;)
+
+**NeoResearch Community**
