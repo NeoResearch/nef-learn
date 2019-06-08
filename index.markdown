@@ -476,7 +476,7 @@ One interesting property of the Array stack item is its ability to allow side-ef
 
 
 
-## Keyboard Input
+## Keyboard Input (do not read after this part... old easyforth tutorial)
 
 Forth has a special word called `key`, which is used for accepting keyboard input.
 When the `key` word is executed, execution is paused until a key is pressed. Once
