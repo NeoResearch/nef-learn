@@ -25,6 +25,7 @@ function Forth(next) {
     this.message = word + " ? ";
   }
 
+  /// Neo syscall function
   function MissingSyscallError(word) {
     this.message = word + " ? (unknown Neo blockchain syscall) ";
   }
@@ -141,7 +142,16 @@ function Forth(next) {
       createVariable(tokenizer.nextToken().value);
       break;
     case "syscall": // Neo blockchain only
-      invokeNeoSyscall(tokenizer.nextToken().value);
+      var sname = tokenizer.nextToken().value;
+      if(sname == "Neo.Learn.Execute") // special syscall 
+      {
+        // invoke tokenizer on read string
+        // ????????? TODO
+        var str = context.stack.pop();
+        next(str);
+      }
+      else // regular syscalls
+        invokeNeoSyscall(sname);
       break;
     case "constant":
       createConstant(tokenizer.nextToken().value, context.stack.pop());
