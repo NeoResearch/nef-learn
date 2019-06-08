@@ -512,7 +512,7 @@ One solution for this is to have the following opcodes: `PUSH2 NEWARRAY TOALTSTA
 
 Feel free to try it (remeber to `push15 push10` first):
 
-{% include editor.html neovm=true size="small"%}
+{% include editor.html altstack=true neovm=true size="small"%}
 
 Step by step, this is what happens:
 ```
