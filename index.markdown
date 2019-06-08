@@ -508,7 +508,7 @@ Consider the following C# function:
 void test(int x1, int x2);
 ```
 The function has two parameters, and suppose it was invoked as `test(10, 15)`, thus generating two local variables for `x1` and `x2` in a internal array.
-One solution for this is to have the following opcodes: `PUSH2 NEWARRAY TOALTSTACK DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM DUPFROMALTSTACK PUSH1 PUSH2 ROLL SETITEM`.
+One solution for this, is having the following opcodes: `PUSH2 NEWARRAY TOALTSTACK DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM DUPFROMALTSTACK PUSH1 PUSH2 ROLL SETITEM`.
 
 Feel free to try it (remeber to `push15 push10` first):
 
@@ -516,17 +516,17 @@ Feel free to try it (remeber to `push15 push10` first):
 
 Step by step, this is what happens:
 ```
-          evaluation stack                 | altstack
-___________________________________________|___________
-15 10 ...                                  |
-15 10 2 newarray ...                       |
-15 10 [_,_] toaltstack dupfromaltstack ... |
-15 10 [_,_] 0 2 roll setitem ...           | [_,_]
-15 [_,_] 0 10 setitem ...                  | [_,_]
-15 dupfromaltstack  ...                    | [10,_]
-15 [10,_] 1 2 roll  ...                    | [10,_]
-[10,_] 1 15 setitem ...                    | [10,_]
- ...                                       | [10,15]
+    evstack    |       pending commands        |  altstack
+_______________|_______________________________|____________
+15 10          | push2 newarray ...            |
+15 10 2        | newarray ...                  |
+15 10 [_,_]    | toaltstack dupfromaltstack ...|
+15 10 [_,_] 0 2| roll setitem ...              | [_,_]
+15 [_,_] 0 10  | setitem ...                   | [_,_]
+15             | dupfromaltstack  ...          | [10,_]
+15 [10,_] 1 2  | roll  ...                     | [10,_]
+[10,_] 1 15    | setitem ...                   | [10,_]
+               | ...                           | [10,15]
 ```
 
 ### Storing Execution Parameters
