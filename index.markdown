@@ -470,7 +470,7 @@ dup push1 pickitem <span class="output">HALT</span>
 **Next section:**
 Let's see how an Array can be useful for storing data on multiple stacks.
 
-### Value and Reference types
+## Value and Reference types
 
 One interesting property of the Array stack item is its ability to allow side-effects, since it is a _reference type_ (in constrast to the _value types_ of Integer stack items).
 
@@ -498,7 +498,40 @@ However, when an array is copied, in fact, its pointer is copied:
 
 {% include editor.html neovm=true size="small"%}
 
-So, this is called a _reference type_, because any change performed on top array will reflect automatically on the other array (remember last exercise on how `pickitem` and `setitem` work).
+So, this is called a _reference type_, because any change performed on top array will reflect automatically on the other array (remember last Array exercise on how `pickitem` and `setitem` work).
+
+### Parameter Packing Pattern
+
+One pattern found in compilers is how they manage to pack and store parameters in local variables.
+Consider the following C# function:
+```cs
+void test(int x1, int x2);
+```
+The function has two parameters, and suppose it was invoked as `test(10, 15)`, thus generating two local variables for `x1` and `x2` in a internal array.
+One solution for this is to have the following opcodes: `PUSH2 NEWARRAY TOALTSTACK DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM DUPFROMALTSTACK PUSH1 PUSH2 ROLL SETITEM`.
+
+Feel free to try it (remeber to `push15 push10` first):
+
+{% include editor.html neovm=true size="small"%}
+
+Step by step, this is what happens:
+```
+          evaluation stack                 | altstack
+___________________________________________|___________
+15 10 ...                                  |
+15 10 2 newarray ...                       |
+15 10 [_,_] toaltstack dupfromaltstack ... |
+15 10 [_,_] 0 2 roll setitem ...           | [_,_]
+15 [_,_] 0 10 setitem ...                  | [_,_]
+15 dupfromaltstack  ...                    | [10,_]
+15 [10,_] 1 2 roll  ...                    | [10,_]
+[10,_] 1 15 setitem ...                    | [10,_]
+ ...                                       | [10,15]
+```
+
+### Storing Execution Parameters
+
+Let's see a practical application of having
 
 
 ## Keyboard Input (do not read after this part... old easyforth tutorial)
