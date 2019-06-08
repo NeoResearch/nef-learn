@@ -182,6 +182,11 @@ function addPredefinedWords(addToDictionary, readLines, next) {
   });
 
 
+  // clears evaluation stack
+  addToDictionary("clearstack", function (context) {
+    context.stack.clear();
+  });
+  
   // clears both stacks
   addToDictionary("clearstacks", function (context) {
     context.returnStack.clear();
