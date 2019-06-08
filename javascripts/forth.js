@@ -142,6 +142,7 @@ function Forth(next) {
       createVariable(tokenizer.nextToken().value);
       break;
     case "syscall": // Neo blockchain only
+    {
       var sname = tokenizer.nextToken().value;
       if(sname == "Neo.Learn.Execute") // special syscall 
       {
@@ -152,7 +153,9 @@ function Forth(next) {
       }
       else // regular syscalls
         invokeNeoSyscall(sname);
+    
       break;
+    }
     case "constant":
       createConstant(tokenizer.nextToken().value, context.stack.pop());
       break;
