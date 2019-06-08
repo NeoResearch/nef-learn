@@ -434,8 +434,8 @@ Ok, a summary of what we have done until now:
 <div class="editor-preview editor-text">push2 newarray <span class="output">HALT</span>
 dup arraysize  <span class="output">HALT</span>
 drop  <span class="output">HALT</span>
-dup push0 push10<span class="output">HALT</span>
-dup push1 push15<span class="output">HALT</span>
+dup push0 push10 <span class="output">HALT</span>
+dup push1 push15 <span class="output">HALT</span>
 </div>
 
 {% include stack.html stack="1578" %}
@@ -444,7 +444,7 @@ Now, let's play a little bit, and extract values from the array.
 For example, getting value at index `0` is easy using `pickitem`: `dup push0 pickitem`.
 We should get a nice `10` on top of the stack:
 
-<div class="editor-preview editor-text">dup push0 pickitem<span class="output">HALT</span>
+<div class="editor-preview editor-text">dup push0 pickitem <span class="output">HALT</span>
 </div>
 
 {% include stack.html stack="1578 10" %}
@@ -455,7 +455,7 @@ Let's drop the `10` and try to get the value at index `1` (try by yourself befor
 
 Final solution:
 
-<div class="editor-preview editor-text">dup push1 pickitem<span class="output">HALT</span>
+<div class="editor-preview editor-text">dup push1 pickitem <span class="output">HALT</span>
 </div>
 
 {% include stack.html stack="1578 15" %}
