@@ -550,8 +550,34 @@ void test(int x1, int x2)
 Suppose local variables (`x1=10`, `x2=15`) are already loaded on altstack via `push15 push10 push2 pack toaltstack`.
 The desired operation (`x1=2*x1+x2`) could be performed using the following opcodes: `PUSH2  DUPFROMALTSTACK PUSH0 PICKITEM MUL DUPFROMALTSTACK PUSH1 PICKITEM ADD DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM`.
 
-...
+**Exercise:** execute the following code, step by step (remember to load parameters on altstack first).
 
+{% include editor.html altstack=true neovm=true size="small"%}
+
+**Solution:**
+
+First step, `push2` pushed value `2` to evaluation stack (it will be used later on multiplication).
+
+{% include stack.html stack="2" %}
+
+Then, `DUPFROMALTSTACK PUSH0 PICKITEM` extract first parameter from the array at altstack, with value `10`.
+
+{% include stack.html stack="2 10" %}
+
+Opcode `mul` performs the multiplication:
+
+{% include stack.html stack="20" %}
+
+Second step, after calculation of `2*x1`, we will calculate `2*x1 + x2`. We need to get `x2`:
+`DUPFROMALTSTACK PUSH1 PICKITEM` (value of `x2` is `15`).
+
+{% include stack.html stack="20 15" %}
+
+Opcode `add` performs the sum:
+
+{% include stack.html stack="35" %}
+
+Finally, we need to store the result of `2*x1 + x2` back on `x1`. Opcodes `DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM` do the job.
 
 **Challenge:** This code can be actually compiled and tested on [NeoCompiler Eco](https://neocompiler.io), generating the following opcodes (in hex): `52-c5-6b-6a-00-52-7a-c4-6a-51-52
 7a-c4-52-6a-00-c3-95-6a-51-c3-93-6a-00-52-7a-c4-61-6c-75-66`.
