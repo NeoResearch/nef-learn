@@ -472,8 +472,32 @@ Let's see how an Array can be useful for storing data on multiple stacks.
 
 ### Value and Reference types
 
-One interesting property of the Array stack item is its ability to allow side-effects, since it is a _reference type_ (as a constrast to the _value types_ of Integer stack items).
+One interesting property of the Array stack item is its ability to allow side-effects, since it is a _reference type_ (in constrast to the _value types_ of Integer stack items).
 
+When an Integer is copied on NeoVM, both become completely independent entities:
+
+<div class="editor-preview editor-text">push10 dup <span class="output">HALT</span>
+</div>
+
+{% include stack.html stack="10 10" %}
+
+If you add one to the top integer, nothing will happen to the other one (in fact, a new integer is always created after any arithmetic operation):
+
+<div class="editor-preview editor-text">push1 add <span class="output">HALT</span>
+</div>
+
+{% include stack.html stack="10 11" %}
+
+However, when an array is copied, in fact, its pointer is copied:
+
+<div class="editor-preview editor-text">push2 newarray dup <span class="output">HALT</span>
+</div>
+
+{% include stack.html stack="1578 1578" %}
+
+{% include editor.html neovm=true size="small"%}
+
+So, this is called a _reference type_, because any change performed on top array will reflect automatically on the other array (remember last exercise on how `pickitem` and `setitem` work).
 
 
 ## Keyboard Input (do not read after this part... old easyforth tutorial)
