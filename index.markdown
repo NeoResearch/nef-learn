@@ -519,9 +519,9 @@ Step by step, this is what happens:
     evstack    |        pending commands        |  altstack
 _______________|________________________________|____________
 15 10          | push2 newarray ...             |
-15 10 2        | newarray ...                   |
 15 10 [_,_]    | toaltstack dupfromaltstack ... |
-15 10 [_,_] 0 2| roll setitem ...               | [_,_]
+15 10 [_,_]    | push0 push2 ...                | [_,_]
+15 10 [_,_] 0 2| roll ...                       | [_,_]
 15 [_,_] 0 10  | setitem ...                    | [_,_]
 15             | dupfromaltstack push1 push2 ...| [10,_]
 15 [10,_] 1 2  | roll  ...                      | [10,_]
