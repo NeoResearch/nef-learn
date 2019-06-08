@@ -419,7 +419,7 @@ drop  <span class="output">HALT</span>
 
 Second step is to define the position and value to store on array for a `setitem`.
 Since array is consumed during `setitem`, we need to dup it first. 
-So, to store `10` on position `0` (over existing array on stack) we do: `dup push0 push10`. 
+So, to store `10` on position `0` (over existing array on stack) we do: `dup push0 push10 setitem`. 
 
 {% include stack.html stack="1578" %}
 
@@ -434,8 +434,8 @@ Ok, a summary of what we have done until now:
 <div class="editor-preview editor-text">push2 newarray <span class="output">HALT</span>
 dup arraysize  <span class="output">HALT</span>
 drop  <span class="output">HALT</span>
-dup push0 push10 <span class="output">HALT</span>
-dup push1 push15 <span class="output">HALT</span>
+dup push0 push10 setitem <span class="output">HALT</span>
+dup push1 push15 setitem <span class="output">HALT</span>
 </div>
 
 {% include stack.html stack="1578" %}
@@ -453,9 +453,16 @@ Let's drop the `10` and try to get the value at index `1` (try by yourself befor
 
 {% include editor.html neovm=true size="small"%}
 
-Final solution:
+Final solution (step by step):
 
-<div class="editor-preview editor-text">dup push1 pickitem <span class="output">HALT</span>
+<div class="editor-preview editor-text">push2 newarray <span class="output">HALT</span>
+dup arraysize  <span class="output">HALT</span>
+drop  <span class="output">HALT</span>
+dup push0 push10 setitem <span class="output">HALT</span>
+dup push1 push15 setitem <span class="output">HALT</span>
+dup push0 pickitem <span class="output">HALT</span>
+drop <span class="output">HALT</span>
+dup push1 pickitem <span class="output">HALT</span>
 </div>
 
 {% include stack.html stack="1578 15" %}
