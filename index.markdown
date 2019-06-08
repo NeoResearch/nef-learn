@@ -516,17 +516,17 @@ Feel free to try it (remeber to `push15 push10` first):
 
 Step by step, this is what happens:
 ```
-    evstack    |       pending commands        |  altstack
-_______________|_______________________________|____________
-15 10          | push2 newarray ...            |
-15 10 2        | newarray ...                  |
-15 10 [_,_]    | toaltstack dupfromaltstack ...|
-15 10 [_,_] 0 2| roll setitem ...              | [_,_]
-15 [_,_] 0 10  | setitem ...                   | [_,_]
-15             | dupfromaltstack  ...          | [10,_]
-15 [10,_] 1 2  | roll  ...                     | [10,_]
-[10,_] 1 15    | setitem ...                   | [10,_]
-               | ...                           | [10,15]
+    evstack    |        pending commands        |  altstack
+_______________|________________________________|____________
+15 10          | push2 newarray ...             |
+15 10 2        | newarray ...                   |
+15 10 [_,_]    | toaltstack dupfromaltstack ... |
+15 10 [_,_] 0 2| roll setitem ...               | [_,_]
+15 [_,_] 0 10  | setitem ...                    | [_,_]
+15             | dupfromaltstack push1 push2 ...| [10,_]
+15 [10,_] 1 2  | roll  ...                      | [10,_]
+[10,_] 1 15    | setitem ...                    | [10,_]
+               | ...                            | [10,15]
 ```
 
 To inspect what happened, use the following commands to get array from altstack and pick inside it:
