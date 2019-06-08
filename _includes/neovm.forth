@@ -204,7 +204,7 @@
 \ WITHIN = 0xA5,
 
 \ ====================
-variable nvmarraytest            \ single global for array tests
+variable nvmarraytest            \ single global for array tests (warming-up var system)
 
 \ An input index n (or key) and an array (or map) are taken from main stack. Element array[n] (or map[n]) is put on top of the main stack.
 : pickitem swap cells swap nvmarraytest + ? ;            \ 0xc3
@@ -214,8 +214,8 @@ variable nvmarraytest            \ single global for array tests
 \        /// </summary>
 \ SETITEM = 0xC4,
 
-\ newarray
-: newarray nvmarraytest swap cells allot ;            \ 0xc5
+\ newarray 
+: newarray here swap cells allot ;                      \ 0cx5
 
 
 \ bye

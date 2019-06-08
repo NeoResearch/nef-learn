@@ -7,6 +7,7 @@ function Memory() {
     return _memPointer++;
   }
 
+  // TODO: NR CONTRIBUTED FUNCTION (ORGANIZE PR)
   function getHere() {
     return _memPointer;
   }
