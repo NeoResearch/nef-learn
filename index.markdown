@@ -483,7 +483,8 @@ When an Integer is copied on NeoVM, both become completely independent entities:
 
 If you add one to the top integer, nothing will happen to the other one (in fact, a new integer is always created after any arithmetic operation):
 
-<div class="editor-preview editor-text">push1 add <span class="output">HALT</span>
+<div class="editor-preview editor-text">push10 dup <span class="output">HALT</span>
+push1 add <span class="output">HALT</span>
 </div>
 
 {% include stack.html stack="10 11" %}
