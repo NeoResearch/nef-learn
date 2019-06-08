@@ -672,15 +672,15 @@ Basically, a jump changes the current instruction counter and moves it to anothe
 position in the _NVM script_, affecting which operations will be read after that.
 Since this is not directly related to the stack execution model, it will only be covered in future tutorials.
 
-## Snake!
+## A NVM/FORTH snake game
 
-Time to have (even more) fun! Let's use NeoVM to create a Snake game ;)
+Time to have (even more) fun! Let's use NeoVM to run a Snake game ;)
 
 The code of the game is pre-loaded (which is somewhat large), and it contains instructions from both NeoVM and FORTH language.
 The game is originally made by [Nick Morgan](https://twitter.com/skilldrick) as part of the [EasyForth tutorial](https://skilldrick.github.io/easyforth).
 
 
-The game works by binding some _local variables_ into graphics and key operations (in a similar way that Neo syscalls work).
+The game works by binding some NVM _local/global variables_ into graphics and key operations (in a similar way that Neo syscalls work).
 
 ....
 
