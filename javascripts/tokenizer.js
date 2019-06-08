@@ -55,13 +55,13 @@ function Tokenizer(input) {
   function getNextToken() {
     skipWhitespace();
     var isStringLiteral = hasCharsAtIndex('." ', index);
-    var isStringPushLiteral = hasCharsAtIndex('s" ', index);
+    var isStringPushLiteral = hasCharsAtIndex('s" ', index); // TODO: contributed part on StringPushLiteral s"
     var isParenComment = hasCharsAtIndex('( ', index);
     var isSlashComment = hasCharsAtIndex('\\ ', index);
 
     var value = "";
 
-    if (isStringLiteral || isStringPushLiteral) {
+    if (isStringLiteral || isStringPushLiteral) { // TODO: contributed part on StringPushLiteral s"
       value = processString();
     } else if (isParenComment) {
       processParenComment();
@@ -79,7 +79,7 @@ function Tokenizer(input) {
     return {
       value: value,
       isStringLiteral: isStringLiteral,
-      isStringPushLiteral : isStringPushLiteral
+      isStringPushLiteral : isStringPushLiteral // TODO: contributed part on StringPushLiteral s"
     };
   }
 
