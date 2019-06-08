@@ -40,7 +40,7 @@ function Forth(next) {
         return word;
       });
     }
-    // TODO: contributed part on StringPushLiteral s"
+    // TODO: contributed part on StringPushLiteral s" (TODO make PR)
     else if (token.isStringPushLiteral) {
       return namedFunction("PushString: " + word, function (context) {
         context.stack.push(word);

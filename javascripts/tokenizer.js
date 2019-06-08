@@ -55,6 +55,7 @@ function Tokenizer(input) {
   function getNextToken() {
     skipWhitespace();
     var isStringLiteral = hasCharsAtIndex('." ', index);
+    // TODO: make PR on isStringPushLiteral
     var isStringPushLiteral = hasCharsAtIndex('s" ', index); // TODO: contributed part on StringPushLiteral s"
     var isParenComment = hasCharsAtIndex('( ', index);
     var isSlashComment = hasCharsAtIndex('\\ ', index);
