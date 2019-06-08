@@ -64,12 +64,6 @@ function Forth(next) {
     addToDictionary(name, definition);
   }
 
-  // CONTRIBUTED NR: TODO, make PR
-  function pushHere(name) {
-    var pointer = context.memory.getHere();
-    context.stack.push(pointer);
-  }
-
   function createVariable(name) {
     var pointer = context.memory.addVariable(name);
     addToDictionary(name, function (context) {
@@ -104,9 +98,6 @@ function Forth(next) {
     switch (action.code) {
     case "variable":
       createVariable(tokenizer.nextToken().value);
-      break;
-    case "here":
-      pushHere();
       break;
     case "constant":
       createConstant(tokenizer.nextToken().value, context.stack.pop());

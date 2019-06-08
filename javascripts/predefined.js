@@ -8,7 +8,7 @@ function addPredefinedWords(addToDictionary, readLines, next) {
 
   [
     ":", ";", "if", "else", "then", "do", "loop",
-    "+loop", "begin", "until", "variable", "constant", "key", "here"
+    "+loop", "begin", "until", "variable", "constant", "key"
   ].forEach(function (code) {
     addToDictionary(code, controlCode(code));
   });
@@ -19,6 +19,12 @@ function addPredefinedWords(addToDictionary, readLines, next) {
 
   addToDictionary(".s", function (context) {
     return "\n" + context.stack.print();
+  });
+
+  // TODO: make PR for this... NR contributed function 'here'
+  addToDictionary("here", function (context) {
+    var pointer = context.memory.getHere();
+    context.stack.push(pointer);
   });
 
   addToDictionary("+", function (context) {
