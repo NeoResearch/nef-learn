@@ -202,6 +202,13 @@
 \ ====================
 variable nvmarraytest            \ single global for array tests (warming-up var system)
 
+\ arraysize is position zero of array
+: arraysize push0 add @ ;                                          \ 0xc0
+
+\ pack (opcode 0xc1) - presented in a few lines after
+
+\ unpack (opcode 0xc2) - not implemented, yet
+
 \ An input index n (or key) and an array (or map) are taken from main stack. Element array[n] (or map[n]) is put on top of the main stack.
 : pickitem cells push1 add add @ ;                                 \ 0xc3
 \ 1600 0 pickitem -> 1600[1]
@@ -210,16 +217,13 @@ variable nvmarraytest            \ single global for array tests (warming-up var
 \        /// A value v, index n (or key) and an array (or map) are taken from main stack. Attribution array[n]=v (or map[n]=v) is performed.
 \        /// </summary>
 \ SETITEM = 0xC4,
-: setitem swap push1 add rot add ! ;                                 \ 0xc3
+: setitem swap push1 add rot add ! ;                               \ 0xc4
 \ 1600 0 10 -> 1600[1] = 10
 
-\ arraysize is position zero of array
-: arraysize push0 add @ ;
-
 \ newarray  (alloc n spaces + 1 for count)
-: newarray dup here swap push1 add cells allot dup rot swap ! ;    \ 0cx5
+: newarray dup here swap push1 add cells allot dup rot swap ! ;    \ 0xc5
 
-\ pack (using `do loop` in return stack, may not work on gforth)
+\ pack (using `do loop` in return stack, may not work on gforth)    \0xc1 (after newarray/setitem)
 : pack dup newarray toaltstack push0 do fromaltstack dupfromaltstack swap dup toaltstack rot setitem loop fromaltstack ;
 \ warning: `0 pack` may break the FORTH loop
 

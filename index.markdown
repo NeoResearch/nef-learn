@@ -345,7 +345,36 @@ Alternative Stack:
 
 
 
-## Arrays (unfinished neovm part, do not proceed now)
+## Arrays
+
+Arrays are fundamental pieces for complex NVM scripts.
+They allow you to store _indexed data_ with immediate access, and it is very useful to implement the behavior of local and global variables. 
+
+How do you create an Array?
+
+### `newarray` (opcode `0xc5`)
+
+`newarray` gets top element `n` (from Evaluation Stack) and creates a `n`-sized array. Example:
+
+    push2 newarray
+
+{% include stack.html stack="1560" %}
+
+Wait, what is this number pushed on stack? Our example considers `1560` (but it may be different) as the _memory pointer_ where to find the array (in local memory).
+
+### `arraysize` (opcode `0xc0`)
+
+What can you do with an Array/pointer? First, you can push its size to stack. Example:
+
+    push2 newarray arraysize
+
+{% include stack.html stack="2" %}
+
+Practice a little bit:
+
+{% include editor.html neovm=true size="small"%}
+
+### dsd
 
 Forth doesn't exactly support arrays, but it does allow you to allocate a zone of
 contiguous memory, a lot like arrays in C. To allocate this memory, use the `allot`
@@ -384,7 +413,12 @@ We can easily write words to simplify array access:
 
 `number` takes an offset into `numbers` and returns the memory address at that
 offset. `30 2 number !` stores `30` at offset `2` in `numbers`, and `2 number ?`
-prints the value at offset `2` in `numbers`.
+prints the value at offset `2` in `numbers`
+
+### Value and Reference types
+
+One interesting property of the Array stack item is its ability to allow side-effects, since it is a _reference type_ (as a constrast to the _value types_ of Integer stack items).
+
 
 
 ## Keyboard Input
