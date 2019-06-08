@@ -223,6 +223,8 @@ variable nvmarraytest            \ single global for array tests (warming-up var
 \ newarray  (alloc n spaces + 1 for count)
 : newarray dup here swap push1 add cells allot dup rot swap ! ;    \ 0cx5
 
+\ pack
+: pack dup newarray toaltstack 0 do fromaltstack dupfromaltstack swap dup toaltstack rot setitem loop fromaltstack ;
 
 \ bye
 
