@@ -42,8 +42,8 @@ function Forth(next) {
     }
     // TODO: contributed part on StringPushLiteral s"
     else if (token.isStringPushLiteral) {
-      return namedFunction("String: " + word, function (context) {
-        return word;
+      return namedFunction("PushString: " + word, function (context) {
+        context.stack.push(word);
       });
     } else if (definition !== null) {
       return definition;
