@@ -396,7 +396,7 @@ Opcode `pickitem` consumes an Array pointer `p` and an index `i` stack, and puts
 
 ### Exercises
 
-**Exercise:** Try to create a 2-sized array, and store values `10` and `20` in its first positions.
+**Exercise:** Try to create a 2-sized array, and store values `10` and `15` in its first positions.
 
 {% include editor.html neovm=true size="small"%}
 
@@ -417,43 +417,50 @@ drop  <span class="output">HALT</span>
 {% include stack.html stack="1578" %}
 
 
-Second step is: `3 * (5 - 6)`. Since `(5 - 6)` is already on stack, you just need to push number 3 and multiply: `push3 mul`. Stack should contain `-3` now.
+Second step is to define the position and value to store on array for a `setitem`.
+Since array is consumed during `setitem`, we need to dup it first. 
+So, to store `10` on position `0` (over existing array on stack) we do: `dup push0 push10`. 
 
-{% include stack.html stack="-3" %}
+{% include stack.html stack="1578" %}
 
-Third step: let's leave `-3` there, because we need to compute `15 / 2` now.
-How do we do that? Simple, just `push15 push2 div`. Our stack must have two values now: `-3` and `7` (integer division of 15 and 2).
+Looks like nothing happened, but trust me, value `10` is somehow inside this array pointer ;)
 
-{% include stack.html stack="-3 7" %}
-
-Fourth step: expression `(3 * (5 - 6) + 15 / 2)` can be computed now. 
-We already have the result of `3 * (5 - 6)` and `15 / 2` on stack, so we just `add`.
-Number `4` should be on top of the stack now.
-
-{% include stack.html stack="4" %}
-
-Finally, we perform the division by 3 and take the rest: `push3 mod`. Result should be `1`.
-
-{% include stack.html stack="1" %}
-
-Let's review the whole operations (step-by-step) and the result on stack: 
-    `push5 push6 sub push3 mul push15 push2 div add push3 mod`
+Let's repeat the process for value `15` on position `1` (try to do it by yourself before proceeding):
 
 {% include editor.html neovm=true size="small"%}
 
-<div class="editor-preview editor-text">push5 <span class="output">HALT</span>
-push6  <span class="output">HALT</span>
-sub  <span class="output">HALT</span>
-push3  <span class="output">HALT</span>
-mul  <span class="output">HALT</span>
-push15  <span class="output">HALT</span>
-push2  <span class="output">HALT</span>
-div  <span class="output">HALT</span>
-add  <span class="output">HALT</span>
-push3  <span class="output">HALT</span>
-mod  <span class="output">HALT</span>
+Ok, a summary of what we have done until now:
+
+<div class="editor-preview editor-text">push2 newarray <span class="output">HALT</span>
+dup arraysize  <span class="output">HALT</span>
+drop  <span class="output">HALT</span>
+dup push0 push10<span class="output">HALT</span>
+dup push1 push15<span class="output">HALT</span>
 </div>
-{% include stack.html stack="1" %}
+
+{% include stack.html stack="1578" %}
+
+Now, let's play a little bit, and extract values from the array.
+For example, getting value at index `0` is easy using `pickitem`: `dup push0 pickitem`.
+We should get a nice `10` on top of the stack:
+
+<div class="editor-preview editor-text">dup push0 pickitem<span class="output">HALT</span>
+</div>
+
+{% include stack.html stack="1578 10" %}
+
+Let's drop the `10` and try to get the value at index `1` (try by yourself before proceeding):
+
+{% include editor.html neovm=true size="small"%}
+
+Final solution:
+
+<div class="editor-preview editor-text">dup push1 pickitem<span class="output">HALT</span>
+</div>
+
+{% include stack.html stack="1578 15" %}
+
+Let's see how an Array can be useful for storing data on multiple stacks.
 
 ### Value and Reference types
 
