@@ -25,6 +25,10 @@ function Forth(next) {
     this.message = word + " ? ";
   }
 
+  function MissingSyscallError(word) {
+    this.message = word + " ? (unknown Neo blockchain syscall) ";
+  }
+
   function namedFunction(name, func) {
     func._name = name;
     return func;
