@@ -226,6 +226,7 @@ function addPredefinedWords(addToDictionary, readLines, next) {
     };
   });
 
+  // TODO: moved to Neo blockchain syscalls, instead of hardcoding here
   /*
   addToDictionary("sleep", function (context) {
     var timeout = context.stack.pop();

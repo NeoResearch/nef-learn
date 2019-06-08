@@ -612,9 +612,11 @@ NeoVM is a lightweight stack computing engine, used to interoperate with higher 
 Interoperability can be achieved by means of `syscall` opcode (code `0x68`), that receives a _interop command_ as parameter.
 
 Neo blockchain defines several interop calls, which are not available here in this simplified tutorial (just the NeoVM part is covered here). 
-However, we illustrate such capability with three special interop commands (just available in NVM Learn platform):
+However, we illustrate such capability with some interop commands (just available in NVM Learn platform):
 - `Neo.Learn.Notify`
 - `Neo.Learn.Log`
+- `Neo.Learn.Sleep`
+- `Neo.Learn.Random`
 - ...
 
 `Neo.Learn.Notify` takes one element from stack and prints it on the web browser via alert system.
