@@ -40,6 +40,8 @@ For example, if you want to add two numbers, first you need to put them on the s
 One difference from other languages is that you need to _first put the operands, and then put the operation_, e.g., operation `1 + 2` is done as `1 2 +` on a stack machine (_put one, put two, then sum the top two elements_).
 Where is the result of the operation stored? Again, the result of the operation is also put back on the stack.
 
+### `push1-push16` (opcodes `0x51-0x60`)
+
 Let's try it on practice! Type (don't copy-paste) the following into the
 interpreter, typing `Enter` after each line.
 
@@ -92,6 +94,10 @@ You can also write everything in a single line and press `Enter`:
 The main stack now looks like this:
 
 {% include stack.html stack="13" %}
+
+### `push0` and `pushm1` (opcodes `0x00` and `0x4f`)
+
+Other useful push opcodes are `push0`, that pushes `0` to stack, and `pushm1`, that pushes `-1` to stack. Values over `16` (up to 32 bytes) can be pushed in other ways (see NVM `pushdata` for more information).
 
 ### Polish notation and multiplication
 
@@ -347,8 +353,8 @@ Alternative Stack:
 
 ## Arrays
 
-Arrays are fundamental pieces for complex NVM scripts.
-They allow you to store _indexed data_ with immediate access, and it is very useful to implement the behavior of local and global variables. 
+Arrays are fundamental tools for complex NVM scripts.
+They allow you to store _indexed access_, which is very useful to implement the behavior of local and global variables. 
 
 How do you create an Array?
 
