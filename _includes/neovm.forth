@@ -225,6 +225,7 @@ variable nvmarraytest            \ single global for array tests (warming-up var
 
 \ pack (using `do loop` in return stack, may not work on gforth)
 : pack dup newarray toaltstack push0 do fromaltstack dupfromaltstack swap dup toaltstack rot setitem loop fromaltstack ;
+\ warning: `0 pack` may break the FORTH loop
 
 \ bye
 
