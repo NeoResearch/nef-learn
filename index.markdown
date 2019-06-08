@@ -534,11 +534,18 @@ To inspect what happened, use the following commands to get array from altstack 
 
 **Exercise:** replace the code above with a much simpler operation.
 
+{% include editor.html altstack=true neovm=true size="small"%}
 
+### Managing Execution Parameters
 
-### Storing Execution Parameters
-
-Let's see a practical application of having
+Let's see a practical application of having local parameters.
+Consider C# function:
+```cs
+void test(int x1, int x2)
+{
+    x1 = 2*x1 + x2; // compute 2 times x1 plus x2 and store on x1
+}
+```
 
 
 ## Keyboard Input (do not read after this part... old easyforth tutorial)
