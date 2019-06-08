@@ -608,8 +608,27 @@ Use the disassembly options from the website to inspect and understand how compi
 
 ## Syscalls
 
+NeoVM is a lightweight stack computing engine, used to interoperate with higher levels of Neo blockchain.
+Interoperability can be achieved by means of `syscall` opcode (code `0x68`), that receives a _interop command_ as parameter.
 
+Neo blockchain defines several interop calls, which are not available here in this simplified tutorial (just the NeoVM part is covered here). 
+However, we illustrate such capability with three special interop commands (just available in NVM Learn platform):
+- `Neo.Learn.Notify`
+- `Neo.Learn.Log`
+- ...
 
+`Neo.Learn.Notify` takes one element from stack and prints it on the web browser via alert system.
+A **very interesting** "Hello World" example can be done in the following way:
+
+<div class="editor-preview editor-text">s" Hello World" <span class="output">HALT</span>
+syscall Neo.Learn.Notify <span class="output">HALT</span>
+</div>
+
+Note the space between `s"` and `Hello World"`, this is necessary for string parsing on FORTH stack language (used in this tutorial).
+
+{% include editor.html altstack=true neovm=true size="small"%}
+
+If you have a desktop-based browser, you can also try `Neo.Learn.Log`, which puts content on browser console log system.
 
 ## Snake!
 

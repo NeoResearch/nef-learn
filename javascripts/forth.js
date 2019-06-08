@@ -83,7 +83,7 @@ function Forth(next) {
 
   // Neo blockchain only. TODO: do not need to contribute this part (not FORTH related)
   function invokeNeoSyscall(name) {
-    if(name == "Neo.Learn.Alert")
+    if(name == "Neo.Learn.Notify")
     {
       var str = context.stack.pop();
       alert(str);
