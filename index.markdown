@@ -674,20 +674,21 @@ Since this is not directly related to the stack execution model, it will only be
 
 ## Snake!
 
-Now it's time to put it all together and make a game! Rather than having you type
-all the code, I've pre-loaded it into the editor.
+Time to have (even more) fun! Let's use NeoVM to create a Snake game ;)
+
+The code of the game is pre-loaded (which is somewhat large), and it contains instructions from both NeoVM and FORTH language.
+The game is originally made by [Nick Morgan](https://twitter.com/skilldrick) as part of the [EasyForth tutorial](https://skilldrick.github.io/easyforth).
+
+
+The game works by binding some _local variables_ into graphics and key operations (in a similar way that Neo syscalls work).
+
+....
 
 Before we look at the code, try playing the game. To start the game, execute the
 word `start`. Then use the arrow keys to move the snake. If you lose, you can run
 `start` again.
 
 {% include editor.html canvas=true game=true %}
-
-Before we delve too deeply into this code, two disclaimers. First, this is terrible
-Forth code. I'm by no means a Forth expert, so there's probably all kinds of things
-I'm doing in completely the wrong way. Second, this game uses a few non-standard
-techniques in order to interface with JavaScript. I'll go through these now.
-
 
 
 ## Ending Words

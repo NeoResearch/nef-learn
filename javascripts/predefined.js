@@ -226,8 +226,6 @@ function addPredefinedWords(addToDictionary, readLines, next) {
     };
   });
 
-  // TODO: moved to Neo blockchain syscalls, instead of hardcoding here
-  /*
   addToDictionary("sleep", function (context) {
     var timeout = context.stack.pop();
     context.pause = true;
@@ -242,7 +240,6 @@ function addPredefinedWords(addToDictionary, readLines, next) {
     var range = context.stack.pop();
     context.stack.push(Math.floor(Math.random() * range));
   });
-  */
 
   readLines([
     ": cells   1 * ;",
