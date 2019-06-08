@@ -530,11 +530,11 @@ _______________|________________________________|____________
 ```
 
 To inspect what happened, use the following commands to get array from altstack and pick inside it:
-`dupfromaltstack 1 pickitem` (gets first element), `drop`, `dupfromaltstack 0 pickitem` (gets second element).
-
-**Exercise:** replace the code above (`PUSH2 NEWARRAY TOALTSTACK DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM DUPFROMALTSTACK PUSH1 PUSH2 ROLL SETITEM`) by a much simpler operation.
+`dupfromaltstack 0 pickitem` (gets first element), `drop`, `dupfromaltstack 1 pickitem` (gets second element).
 
 {% include editor.html altstack=true neovm=true size="small"%}
+
+**Exercise:** replace the code above (`PUSH2 NEWARRAY TOALTSTACK DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM DUPFROMALTSTACK PUSH1 PUSH2 ROLL SETITEM`) by a much simpler operation.
 
 ### Managing Execution Parameters
 
@@ -547,6 +547,15 @@ void test(int x1, int x2)
 }
 ```
 
+Suppose local variables (`x1=10`, `x2=15`) are already loaded on altstack via `push15 push10 push2 pack toaltstack`.
+The desired operation (`x1=2*x1+x2`) could be performed using the following opcodes: `PUSH2  DUPFROMALTSTACK PUSH0 PICKITEM MUL DUPFROMALTSTACK PUSH1 PICKITEM ADD DUPFROMALTSTACK PUSH0 PUSH2 ROLL SETITEM`.
+
+...
+
+
+**Challenge:** This code can be actually compiled and tested on [NeoCompiler Eco](https://neocompiler.io), generating the following opcodes (in hex): `52-c5-6b-6a-00-52-7a-c4-6a-51-52
+7a-c4-52-6a-00-c3-95-6a-51-c3-93-6a-00-52-7a-c4-61-6c-75-66`.
+Use `disassembly` options to inspect and understand how compilation process work for NeoVM.
 
 ## Keyboard Input (do not read after this part... old easyforth tutorial)
 
