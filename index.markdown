@@ -364,9 +364,9 @@ How do you create an Array?
 
     push2 newarray
 
-{% include stack.html stack="1560" %}
+{% include stack.html stack="1578" %}
 
-Wait, what is this number pushed on stack? Our example considers `1560` (but it may be different) as the _memory pointer_ where to find the array (in local memory).
+Wait, what is this number pushed on stack? Our example considers `1578` (but it may be different) as it represents a _memory pointer_ where to find the array (in local memory).
 
 ### `arraysize` (opcode `0xc0`)
 
@@ -376,50 +376,79 @@ What can you do with an Array/pointer? First, you can push its size to stack. Ex
 
 {% include stack.html stack="2" %}
 
+Note that the array is consumed during the process, so you may need to `dup` it before using this. 
 Practice a little bit:
 
 {% include editor.html neovm=true size="small"%}
 
-### dsd
+How do we store information on a array?
 
-Forth doesn't exactly support arrays, but it does allow you to allocate a zone of
-contiguous memory, a lot like arrays in C. To allocate this memory, use the `allot`
-word.
+### `setitem` (opcode `0xc4`)
 
-    variable numbers
-    3 cells allot
-    10 numbers 0 cells + !
-    20 numbers 1 cells + !
-    30 numbers 2 cells + !
-    40 numbers 3 cells + !
+Opcode `setitem` consumes an Array pointer `p`, an index `i` and a value `v` from stack, and performs the following attribution: `(*p)[i] = v`.
+So, after that, value `v` is stored at index `i` of `p`, and nothing is put back on stack (note that array is consumed in this operation, remember to `dup` it).
 
-{% include editor.html size="small"%}
+How do we get information from an Array position?
 
-This example creates a memory location called `numbers`, and reserves three extra
-memory cells after this location, giving a total of four memory cells. (`cells`
-just multiplies by the cell-width, which is 1 in this implementation.)
+### `pickitem` (opcode `0xc3`)
 
-`numbers 0 +` gives the address of the first cell in the array. `10 numbers 0 + !`
-stores the value `10` in the first cell of the array.
+Opcode `pickitem` consumes an Array pointer `p` and an index `i` stack, and puts back on stack the value stored at position `i` of the Array.
 
-We can easily write words to simplify array access:
+### Exercises
 
-    variable numbers
-    3 cells allot
-    : number  ( offset -- addr )  cells numbers + ;
+**Exercise:** Try to create a 2-sized array, and store values `10` and `20` in its first positions.
 
-    10 0 number !
-    20 1 number !
-    30 2 number !
-    40 3 number !
+{% include editor.html neovm=true size="small"%}
 
-    2 number ?
+**Solution:**
 
-{% include editor.html size="small"%}
+First step is `push2 newarray`, so you get an array on stack.
+Let's verify its size, so perform `dup arraysize` and you should get `2` on top stack.
 
-`number` takes an offset into `numbers` and returns the memory address at that
-offset. `30 2 number !` stores `30` at offset `2` in `numbers`, and `2 number ?`
-prints the value at offset `2` in `numbers`
+{% include stack.html stack="1578 2" %}
+
+You can `drop` value `2` now.
+
+{% include stack.html stack="1578" %}
+
+
+Second step is: `3 * (5 - 6)`. Since `(5 - 6)` is already on stack, you just need to push number 3 and multiply: `push3 mul`. Stack should contain `-3` now.
+
+{% include stack.html stack="-3" %}
+
+Third step: let's leave `-3` there, because we need to compute `15 / 2` now.
+How do we do that? Simple, just `push15 push2 div`. Our stack must have two values now: `-3` and `7` (integer division of 15 and 2).
+
+{% include stack.html stack="-3 7" %}
+
+Fourth step: expression `(3 * (5 - 6) + 15 / 2)` can be computed now. 
+We already have the result of `3 * (5 - 6)` and `15 / 2` on stack, so we just `add`.
+Number `4` should be on top of the stack now.
+
+{% include stack.html stack="4" %}
+
+Finally, we perform the division by 3 and take the rest: `push3 mod`. Result should be `1`.
+
+{% include stack.html stack="1" %}
+
+Let's review the whole operations (step-by-step) and the result on stack: 
+    `push5 push6 sub push3 mul push15 push2 div add push3 mod`
+
+{% include editor.html neovm=true size="small"%}
+
+<div class="editor-preview editor-text">push5 <span class="output">HALT</span>
+push6  <span class="output">HALT</span>
+sub  <span class="output">HALT</span>
+push3  <span class="output">HALT</span>
+mul  <span class="output">HALT</span>
+push15  <span class="output">HALT</span>
+push2  <span class="output">HALT</span>
+div  <span class="output">HALT</span>
+add  <span class="output">HALT</span>
+push3  <span class="output">HALT</span>
+mod  <span class="output">HALT</span>
+</div>
+{% include stack.html stack="1" %}
 
 ### Value and Reference types
 
