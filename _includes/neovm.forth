@@ -218,7 +218,7 @@ variable nvmarraytest            \ single global for array tests (warming-up var
 \ 1600 0 10 -> 1600[1] = 10
 
 \ arraysize is position zero of array
-: arraysize 0 pickitem ;
+: arraysize 0 add @ ;
 
 \ newarray  (alloc n spaces + 1 for count)
 : newarray dup here swap push1 add cells allot dup rot swap ! ;    \ 0cx5
