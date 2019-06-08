@@ -529,6 +529,13 @@ _______________|_______________________________|____________
                | ...                           | [10,15]
 ```
 
+To inspect what happened, use the following commands to get array from altstack and pick inside it:
+`dupfromaltstack 1 pickitem` (gets first element), `drop`, `dupfromaltstack 0 pickitem` (gets second element).
+
+**Exercise:** replace the code above with a much simpler operation.
+
+
+
 ### Storing Execution Parameters
 
 Let's see a practical application of having
