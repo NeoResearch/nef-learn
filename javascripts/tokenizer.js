@@ -54,11 +54,11 @@ function Tokenizer(input) {
 
   function getNextToken() {
     skipWhitespace();
-    var isNeoStringLiteral = hasCharsAtIndex('." ', index);
+    var isStringLiteral = hasCharsAtIndex('." ', index);
     // TODO: make PR on isStringPushLiteral
     var isStringPushLiteral = hasCharsAtIndex('s" ', index); // TODO: contributed part on StringPushLiteral s"
     // don't know if here or elsewhere... keep it here for now!! TODO: NR
-    var isSyscallLiteral = hasCharsAtIndex('syscall" ', index); 
+    var isNeoSyscallLiteral = hasCharsAtIndex('syscall" ', index); 
     var isParenComment = hasCharsAtIndex('( ', index);
     var isSlashComment = hasCharsAtIndex('\\ ', index);
 
