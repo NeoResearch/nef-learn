@@ -617,7 +617,7 @@ However, we illustrate such capability with some interop commands (just availabl
 - `syscall" Neo.Learn.Log"`
 - `syscall" Neo.Learn.Sleep"`
 - `syscall" Neo.Learn.Random"`
-- ...
+- `syscall" Neo.Learn.Call"` (see next section on Snake game)
 
 `Neo.Learn.Notify"` takes one element from stack and prints it on the web browser via alert system.
 A **very interesting** "Hello World" example can be done in the following way:
@@ -674,11 +674,12 @@ The game is originally made by [Nick Morgan](https://twitter.com/skilldrick) as 
 
 The game works by binding some NVM _local/global variables_ into graphics and key operations (in a similar way that Neo syscalls work).
 
-....
+To start the game you will need to call the `start` function (a FORTH definition).
+To achieve that, push string `start` to stack using `s" start"` and invoke it, via `syscall" Neo.Learn.Call"`. You can use the arrow keys to move the snake ;)
 
-Before we look at the code, try playing the game. To start the game, execute the
-word `start`. Then use the arrow keys to move the snake. If you lose, you can run
-`start` again.
+<div class="editor-preview editor-text">s" start" <span class="output">HALT</span>
+syscall" Neo.Learn.Call" <span class="output">HALT</span>
+</div>
 
 {% include editor.html canvas=true game=true %}
 
