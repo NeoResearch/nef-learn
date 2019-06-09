@@ -609,21 +609,21 @@ Use the disassembly options from the website to inspect and understand how compi
 ## Syscalls
 
 NeoVM is a lightweight stack computing engine, used to interoperate with higher levels of Neo blockchain.
-Interoperability can be achieved by means of `syscall` opcode (code `0x68`), that receives a _interop command_ as parameter.
+Interoperability can be achieved by means of `syscall` opcode (code `0x68`), that receives a _interop command_ as parameter. This is implemented here as a string literal `syscall"`.
 
 Neo blockchain defines several interop calls, which are not available here in this simplified tutorial (just the NeoVM part is covered here). 
 However, we illustrate such capability with some interop commands (just available in NVM Learn platform):
-- `Neo.Learn.Notify`
-- `Neo.Learn.Log`
-- `Neo.Learn.Sleep`
-- `Neo.Learn.Random`
+- `syscall" Neo.Learn.Notify"`
+- `syscall" Neo.Learn.Log"`
+- `syscall" Neo.Learn.Sleep"`
+- `syscall" Neo.Learn.Random"`
 - ...
 
-`Neo.Learn.Notify` takes one element from stack and prints it on the web browser via alert system.
+`Neo.Learn.Notify"` takes one element from stack and prints it on the web browser via alert system.
 A **very interesting** "Hello World" example can be done in the following way:
 
 <div class="editor-preview editor-text">s" Hello World" <span class="output">HALT</span>
-syscall Neo.Learn.Notify <span class="output">HALT</span>
+syscall" Neo.Learn.Notify" <span class="output">HALT</span>
 </div>
 
 Note the space between `s"` and `Hello World"`, this is necessary for string parsing on FORTH stack language (used in this tutorial).
@@ -643,22 +643,22 @@ A **possible** outcome is:
 
 {% include stack.html stack="16" %}
 
-<div class="editor-preview editor-text">syscall Neo.Learn.Random <span class="output">HALT</span>
+<div class="editor-preview editor-text">syscall" Neo.Learn.Random" <span class="output">HALT</span>
 </div>
 
 {% include stack.html stack="7" %}
 
-<div class="editor-preview editor-text">syscall Neo.Learn.Random <span class="output">HALT</span>
+<div class="editor-preview editor-text">syscall" Neo.Learn.Random" <span class="output">HALT</span>
 </div>
 
 {% include stack.html stack="5" %}
 
-<div class="editor-preview editor-text">syscall Neo.Learn.Random <span class="output">HALT</span>
+<div class="editor-preview editor-text">syscall" Neo.Learn.Random" <span class="output">HALT</span>
 </div>
 
 {% include stack.html stack="3" %}
 
-<div class="editor-preview editor-text">syscall Neo.Learn.Random <span class="output">HALT</span>
+<div class="editor-preview editor-text">syscall" Neo.Learn.Random" <span class="output">HALT</span>
 </div>
 
 {% include stack.html stack="0" %}
