@@ -25,7 +25,11 @@ function Tokenizer(input) {
 
   function processString() {
     var value = "";
-    index += 3; // skip over ." and space
+    if(input[index+1] == "\"") // ." or s"
+      index += 3; // skip over ." and space
+    else
+      index += 10; //  syscall."
+    
     while (input[index] !== '"' && index < length) {
       value += input[index];
       index++;
