@@ -50,7 +50,16 @@ function Forth(next) {
       return namedFunction("PushString: " + word, function (context) {
         context.stack.push(word);
       });
-    } else if (definition !== null) {
+    }
+    // TODO: contributed part on NeoSyscallLiteral syscall" (TODO: do not make PR, think on something better...)
+    else if (token.isNeoSyscallLiteral) {
+      return namedFunction("NeoSyscallString: " + word, function (context) {
+        context.stack.push(word);
+        // TODO: Neo Syscall!!
+
+      });
+    } 
+    else if (definition !== null) {
       return definition;
     } else if (isFinite(word)) {
       return namedFunction("Number: " + word, function (context) {

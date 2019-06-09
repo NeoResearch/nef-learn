@@ -694,7 +694,7 @@ word `start`. Then use the arrow keys to move the snake. If you lose, you can ru
 ## Acknowledgements
 
 This tutorial is a _non-standard_ implementation of both NeoVM and also Forth language, which are both much more powerful than presented here.
-The Snake game is a hybrid NVM/FORTH adaptation of the one proposed on EasyForth tutorial, and we are greatly grateful for this to be made available on GitHub.
+In special, the Snake game is a hybrid NVM/FORTH adaptation of the one proposed on EasyForth tutorial, and we are greatly grateful for this to be made available on GitHub.
 If you are a Forth or NeoVM expert, feel free to contribute!
 
 Follow us on GitHub and Twitter ;)

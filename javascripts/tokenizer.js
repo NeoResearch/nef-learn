@@ -54,15 +54,17 @@ function Tokenizer(input) {
 
   function getNextToken() {
     skipWhitespace();
-    var isStringLiteral = hasCharsAtIndex('." ', index);
+    var isNeoStringLiteral = hasCharsAtIndex('." ', index);
     // TODO: make PR on isStringPushLiteral
     var isStringPushLiteral = hasCharsAtIndex('s" ', index); // TODO: contributed part on StringPushLiteral s"
+    // don't know if here or elsewhere... keep it here for now!! TODO: NR
+    var isSyscallLiteral = hasCharsAtIndex('syscall" ', index); 
     var isParenComment = hasCharsAtIndex('( ', index);
     var isSlashComment = hasCharsAtIndex('\\ ', index);
 
     var value = "";
 
-    if (isStringLiteral || isStringPushLiteral) { // TODO: contributed part on StringPushLiteral s"
+    if (isStringLiteral || isStringPushLiteral || isNeoSyscallLiteral) { // TODO: contributed part on StringPushLiteral s"
       value = processString();
     } else if (isParenComment) {
       processParenComment();
@@ -80,7 +82,8 @@ function Tokenizer(input) {
     return {
       value: value,
       isStringLiteral: isStringLiteral,
-      isStringPushLiteral : isStringPushLiteral // TODO: contributed part on StringPushLiteral s"
+      isStringPushLiteral : isStringPushLiteral ,// TODO: contributed part on StringPushLiteral s"
+      isNeoSyscallLiteral : isNeoSyscallLiteral // TODO: crazy literal here
     };
   }
 
