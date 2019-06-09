@@ -664,11 +664,11 @@ A **possible** outcome is:
 {% include stack.html stack="0" %}
 
 
-## A NVM/FORTH snake game
+## A NVM snake game
 
 Time to have (even more) fun! Let's use NeoVM to run a Snake game ;)
 
-The code of the game is pre-loaded (which is somewhat large), and it contains instructions from both NeoVM and FORTH language.
+The code of the game is pre-loaded (which is somewhat large), and it contains instructions from both NeoVM and FORTH language (still an ongoing work to completely remove all FORTH opcodes).
 The game is originally made by [Nick Morgan](https://twitter.com/skilldrick) as part of the [EasyForth tutorial](https://skilldrick.github.io/easyforth).
 
 
