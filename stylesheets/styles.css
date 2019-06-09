@@ -4,6 +4,10 @@ body {
   font-weight:300;
 }
 
+img[alt=NeoResearch] { width: 200px; }
+
+img[alt=NeoSmartEconomy] { width: 200px; }
+
 .img-circle {
   border-radius: 50%;
   display:block;
