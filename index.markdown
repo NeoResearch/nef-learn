@@ -634,7 +634,7 @@ If you have a desktop-based browser, you can also try `Neo.Learn.Log`, which put
 
 Other interesting syscalls here are: `Neo.Learn.Sleep`, that reads an input from stack and sleeps during this given time (in milliseconds); and `Neo.Learn.Random`, that generates a random number between `0` and stack top value.
 
-**Example:** try pushing `16` to the stack (via `push16`) and counting how many times `syscall Neo.Learn.Random` takes to make this value become zero ;)
+**Example:** try pushing `16` to the stack (via `push16`) and counting how many times `syscall" Neo.Learn.Random"` takes to make this value become zero ;)
 
 A **possible** outcome is:
 
