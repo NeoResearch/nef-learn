@@ -163,3 +163,7 @@ variable length
   ." Game Over" ;
 
 : start  initialize game-loop ;
+
+\ clear page definitions
+page
+
