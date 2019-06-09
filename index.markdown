@@ -664,14 +664,6 @@ A **possible** outcome is:
 {% include stack.html stack="0" %}
 
 
-
-## Conditionals, Loops and Function Calls
-
-Conditionals and loops are implemented on NeoVM via the use o jumps.
-Basically, a jump changes the current instruction counter and moves it to another 
-position in the _NVM script_, affecting which operations will be read after that.
-Since this is not directly related to the stack execution model, it will only be covered in future tutorials.
-
 ## A NVM/FORTH snake game
 
 Time to have (even more) fun! Let's use NeoVM to run a Snake game ;)
@@ -690,8 +682,19 @@ word `start`. Then use the arrow keys to move the snake. If you lose, you can ru
 
 {% include editor.html canvas=true game=true %}
 
+## Learn more
 
-## Acknowledgements
+This tutorial intends to teach only the basics of NeoVM, in a interactive way, but you can always dig more directly on [NeoVM project](https://github.com/neo-project/neo-vm).
+One important topic is not covered, but an explanation is given below.
+
+### Conditionals, Loops and Function Calls
+
+Conditionals and loops are implemented on NeoVM via the use o jumps.
+Basically, a jump changes the current instruction counter and moves it to another 
+position in the _NVM script_, affecting which operations will be read after that.
+Since this is not directly related to the stack execution model, it will only be covered in future tutorials.
+
+### Acknowledgements
 
 This tutorial is a _non-standard_ implementation of both NeoVM and also Forth language, which are both much more powerful than presented here.
 In special, the Snake game is a hybrid NVM/FORTH adaptation of the one proposed on EasyForth tutorial, and we are greatly grateful for this to be made available on GitHub.
