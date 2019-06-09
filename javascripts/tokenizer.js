@@ -28,7 +28,7 @@ function Tokenizer(input) {
     if(input[index+1] == "\"") // ." or s"
       index += 3; // skip over ." and space
     else
-      index += 10; //  syscall."
+      index += 9; //  syscall."
     
     while (input[index] !== '"' && index < length) {
       value += input[index];

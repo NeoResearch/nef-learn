@@ -107,7 +107,7 @@ variable length
 : random-position ( -- pos )
   \ width 4 - random 2 + ;
   width 4 - 
-  syscall Neo.Learn.Random 
+  syscall" Neo.Learn.Random"
   2 + ; \ NVM Learn random syscall
 
 : move-apple
@@ -153,7 +153,7 @@ variable length
     draw-apple
     \ 100 sleep 
     100 
-    syscall Neo.Learn.Sleep \ NVM Learn syscall
+    syscall" Neo.Learn.Sleep" \ NVM Learn syscall
     check-input
     move-snake-tail
     move-snake-head
