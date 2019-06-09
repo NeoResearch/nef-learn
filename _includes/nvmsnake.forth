@@ -164,7 +164,7 @@ variable length
     check-apple
     check-collision
   until
-  ." Game Over" ;
+  s" Game Over" syscall" Neo.Learn.Notify" ;
 
 : start  initialize game-loop ;
 
