@@ -682,7 +682,7 @@ Simply type below (don't copy and paste):
 syscall" Neo.Learn.Call" <span class="output">HALT</span>
 </div>
 
-{% include editor.html canvas=true game=true %}
+{% include editor.html altstack=true neovm=true canvas=true game=true %}
 
 ## Learn more
 
