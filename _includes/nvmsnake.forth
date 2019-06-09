@@ -1,3 +1,7 @@
+\ ALL CREDITS GO TO: https://skilldrick.github.io/easyforth/
+\ AN ADAPTATION OF SNAKE GAME USING NEO BLOCKCHAIN VIRTUAL MACHINE AND FORTH
+\ ADAPTED BY NEORESEARCH COMMUNITY
+
 variable snake-x-head
 500 cells allot
 
@@ -163,6 +167,8 @@ variable length
   ." Game Over" ;
 
 : start  initialize game-loop ;
+
+\ ALL CREDITS GO TO: https://skilldrick.github.io/easyforth/
 
 \ clear page definitions
 page
