@@ -705,3 +705,7 @@ If you are a Forth or NeoVM expert, feel free to contribute!
 Follow us on GitHub and Twitter ;)
 
 **NeoResearch Community**
+
+![NeoResearch](./images/butterfly-05-final.png)
+
+![NeoSmartEconomy](./images/neo_logo.svg)
