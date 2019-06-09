@@ -53,12 +53,26 @@ function Forth(next) {
     }
     // TODO: contributed part on NeoSyscallLiteral syscall" (TODO: do not make PR, think on something better...)
     else if (token.isNeoSyscallLiteral) {
-      return namedFunction("NeoSyscallString: " + word, function (context) {
-        //context.stack.push(word);
-        invokeNeoSyscall(word);
+
+      if(word == "Neo.Learn.Call") { // special syscall 
+        var execAction = context.stack.pop();
+        var definedAction = context.dictionary.lookup(execAction);
+        return definedAction; // TODO
+      }
+      else 
+        return namedFunction("NeoSyscallString: " + word, function (context) {
+          invokeNeoSyscall(word);
+        /*
+        if(sname == "Neo.Learn.Execute") // special syscall 
+        {
+          // invoke tokenizer on read string
+          // ????????? TODO
+          var str = context.stack.pop();
+          next(str);
+        }*/
         // TODO: Neo Syscall!!
 
-      });
+        });
     } 
     else if (definition !== null) {
       return definition;
