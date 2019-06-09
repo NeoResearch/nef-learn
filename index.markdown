@@ -677,6 +677,7 @@ The game works by binding some NVM _local/global variables_ into graphics and ke
 To start the game you will need to call the `start` function (a FORTH definition).
 To achieve that, push string `start` to stack using `s" start"` and invoke it, via `syscall" Neo.Learn.Call"`. You can use the arrow keys to move the snake ;)
 
+Simply type below (don't copy and paste):
 <div class="editor-preview editor-text">s" start" <span class="output">HALT</span>
 syscall" Neo.Learn.Call" <span class="output">HALT</span>
 </div>
