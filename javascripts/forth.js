@@ -54,7 +54,8 @@ function Forth(next) {
     // TODO: contributed part on NeoSyscallLiteral syscall" (TODO: do not make PR, think on something better...)
     else if (token.isNeoSyscallLiteral) {
       return namedFunction("NeoSyscallString: " + word, function (context) {
-        context.stack.push(word);
+        //context.stack.push(word);
+        invokeNeoSyscall(word);
         // TODO: Neo Syscall!!
 
       });
@@ -150,6 +151,7 @@ function Forth(next) {
     case "variable":
       createVariable(tokenizer.nextToken().value);
       break;
+    /*
     case "syscall": // Neo blockchain only
     {
       var sname = tokenizer.nextToken().value;
@@ -165,6 +167,7 @@ function Forth(next) {
     
       break;
     }
+    */
     case "constant":
       createConstant(tokenizer.nextToken().value, context.stack.pop());
       break;
