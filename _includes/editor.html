@@ -8,7 +8,7 @@
   {% endif %}
   <div class="text">
     <div class="prev-lines"></div>
-    <textarea class="input editor-text">{% if include.neovm %}{% include neovm.forth %}{% endif %}{% if include.game %}{% include nvmsnake.forth %}{% endif %}</textarea>
+    <textarea class="input editor-text">{% if include.neovm %}{% include nvm-forth/neovm.forth %}{% endif %}{% if include.game %}{% include nvmsnake.forth %}{% endif %}</textarea>
   </div>
 
   {% if include.canvas %}
