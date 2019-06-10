@@ -17,6 +17,8 @@ Stack languages have many [practical applications](https://www.forth.com/resourc
 
 _(*) If you are new on the Stack Programming world, we strongly recommend reading more on [Stack Data Structure](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) first. If you are curious on FORTH stack machine, we also recommend [EasyForth tutorial](https://skilldrick.github.io/easyforth)._
 
+_(**) The NVM/FORTH implementation of this tutorial is taken from NeoResearch [nvm-forth project](https://github.com/neoresearch/nvm-forth)._
+
 ### NVM Stack Items
 
 NeoVM supports seven different types of stack items.
