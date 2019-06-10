@@ -18,7 +18,7 @@ function Graphics($canvas) {
     var x = offset % widthInBlocks;
     var y = Math.floor(offset / widthInBlocks);
 
-    var color = value ? 'white' : '#71ca00'; // 'black'
+    var color = value ? 'white' : '#71ca00'; // old 'black' // NEO Color
     ctx.fillStyle = color;
 
     ctx.fillRect(x * blockSize, y * blockSize, blockSize, blockSize);
