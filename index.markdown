@@ -185,6 +185,43 @@ mod  <span class="output">HALT</span>
 
 Try to solve it and make sure this is well understood before proceeding to next section ;)
 
+## Push Bytes and Push Data
+
+How to push a number bigger than 16? How to push a _string_ to the stack?
+
+On NeoVM, opcode `PUSHBYTES1` (code `0x01`) pushes a single byte to the stack.
+For example, `PUSHBYTES1 21` (or `0x0121`) would push hex value `21` (decimal `33`) to the stack.
+There are versions of this opcode until `PUSHBYTES75` (code `0x4B`), that allows pushing 75 bytes to the stack. After that, one can use `PUSHDATA1` (opcode `0x4C`), that pushes up to `255` bytes; `PUSHDATA2` (opcode `0x4D`), that pushes up to `2^16` bytes; and `PUSHDATA4` (opcode `0x4E`), up to `2^32` bytes.
+
+In our web implementation of `nvm-forth`, we can use FORTH string push (instead of `pushbytes` or `pushdata`), which works in the following way:
+
+<div class="editor-preview editor-text">s" sometext" <span class="output">HALT</span>
+</div>
+{% include stack.html stack="sometext" %}
+
+The text is pushed in ASCII, which is equivalent to a sequence of bytes on NeoVM. 
+
+_(*) one difference not covered here is that on NeoVM all byte arrays can be converted to integers, but here they are only used as text._
+
+**Next section:** this invites us to a next section, string operations.
+
+### String operations
+
+Useful string operations on NeoVM are: `cat`, `left`, `right`, `substr`.
+
+### `cat` (opcode `0x7e`)
+
+`cat` concatenates top stack elements. Example:
+
+    s" hello" s" world" cat 
+
+{% include editor.html neovm=true size="small" %}
+
+Resulting stack:
+
+{% include stack.html stack="helloworld" %}
+
+_(*) this opcode and other string operators are still not implemented in this web mode for testing. See [neo-vm](https://github.com/neo-project/neo-vm) for more information._
 
 ## Stack Operations
 
@@ -608,7 +645,7 @@ Stack should contain `35`:
 **Challenge:** This code can be actually compiled and tested on [NeoCompiler Eco (neocompiler.io)](https://neocompiler.io), generating the following opcodes (in hex): `52-c5-6b-6a-00-52-7a-c4-6a-51-52-7a-c4-52-6a-00-c3-95-6a-51-c3-93-6a-00-52-7a-c4-61-6c-75-66`.
 Use the disassembly options from the website to inspect and understand how compilation process work for NeoVM.
 
-## Syscalls
+## Syscalls ("Hello World!")
 
 NeoVM is a lightweight stack computing engine, used to interoperate with higher levels of Neo blockchain.
 Interoperability can be achieved by means of `syscall` opcode (code `0x68`), that receives a _interop command_ as parameter. This is implemented here as a string literal `syscall"`.
@@ -628,7 +665,7 @@ A **very interesting** "Hello World" example can be done in the following way:
 syscall" Neo.Learn.Notify" <span class="output">HALT</span>
 </div>
 
-Note the space between `s"` and `Hello World"`, this is necessary for string parsing on FORTH stack language (used in this tutorial).
+Note the space between `s"` and `Hello World!"`, this is necessary for string parsing on FORTH stack language (used in this tutorial).
 
 {% include editor.html altstack=true neovm=true size="small"%}
 
