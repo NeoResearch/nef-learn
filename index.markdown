@@ -185,7 +185,7 @@ mod  <span class="output">HALT</span>
 
 Try to solve it and make sure this is well understood before proceeding to next section ;)
 
-## Push Bytes and Push Data
+### Push Bytes and Push Data
 
 How to push a number bigger than 16? How to push a _string_ to the stack?
 
