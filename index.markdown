@@ -128,7 +128,7 @@ You can play with basic arithmetic operations:
 
 ### Exercises 
 
-**Exercise:** How do you calculate `(10 * (4 - 6) + 15 / 3) mod 7` on NeoVM? What is the expected result?
+**Exercise:** How do you calculate `(3 * (5 - 6) + 15 / 2) mod 3` on NeoVM? What is the expected result?
 
 {% include editor.html neovm=true size="small"%}
 
