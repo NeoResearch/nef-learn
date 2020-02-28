@@ -1,14 +1,12 @@
-# nvm-learn
+# nef-learn
 
-This project intends to provide easy interactive learning of NeoVM (Neo Blockchain Virtual Machine). ( * ) A tutorial based on "EasyForth!" tutorial by @skilldrick on language FORTH.
+This project intends to provide easy interactive learning of NeoVM3 (Neo3 Blockchain Virtual Machine) and the Neo3 Execution Format (NEF). It is an extension of [nvm-learn](https://neoresearch.io/nvm-learn) tutorial (that focused on Neo2), that gives innovative insights on the differences from Neo2 to Neo3 stack machines, and the newest developed opcodes.
 
-![NVM-Learn-Exercise](./images/front-exercise.png)
+This is under construction (so as NeoVM3 project), but tutorial is intended to be officially released soon (including latest advances).
 
 ## Covered Topics
 
-- [Introduction](https://neoresearch.io/nvm-learn/#introduction)
-- ...
-- [Stack Operations](https://neoresearch.io/nvm-learn/#stack-operations)
+- [Introduction (Under construction)](https://neoresearch.io/nef-learn/#introduction) 
 
 ## how to contribute
 
