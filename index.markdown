@@ -30,6 +30,14 @@ NeoVM supports seven different types of stack items.
 * Maps: a map can contain a byte array mapping from a key to a value, that may be another stack item
 * Interop Interfaces: these stack items are only meant to used for interoperating with high-level implementations of NeoVM, such as NeoContract (the Application Engine for Neo Blockchain)
 
+### Neo3 Integer specification
+
+The (Big)Integers on NeoVM3 are represented as little-endian bytearrays with unlimited size (up to computer memory). The serialization is performed as follows:
+* If number is positive, represent it as a bytearray (in little-endian order), and if MSb Most-Significant-bit (in little-endian) is set to 1, you will need to put an extra MSByte 0x00. Example: 255 -> 0xff -> 0b'11111111' -> 0xff00 (I'm doing by head, please correct if I'm mistaken).
+* If number is negative, represent it as positive little-endian bytearray representation, and take two's-complement (MSb will always be 1, indicating that number is negative). Example: -1 -> 0b'00000001' -> 0b'11111110'+1 -> 0b'11111111' -> 0xff.
+
+Since MSB zeroes are always stripped, the representation size of value zero is in fact 0 (0x'' empty bytearray).
+
 ### NVM Opcodes
 
 A NeoVM program is called _script_ (or _NeoVM script_), which is composed by several operations (called _opcodes_). Each opcode has a unique number and a unique name, in order to identify the operation.
