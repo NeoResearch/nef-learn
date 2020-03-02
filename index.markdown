@@ -19,9 +19,9 @@ _(*) If you are new on the Stack Programming world, we strongly recommend readin
 
 _(**) The NVM/FORTH implementation of this tutorial is taken from NeoResearch [nvm-forth project](https://github.com/neoresearch/nvm-forth)._
 
-### NVM Stack Items
+## Neo3 Stack Items
 
-NeoVM supports seven different types of stack items.
+NeoVM supports seven different types of stack items (UNDER UPDATE).
 * Integers: which are in fact Big Integers with positive/negative values limited to 32-bytes (or 256 bits)
 * Byte Arrays: general byte arrays
 * Booleans: a true/false value
